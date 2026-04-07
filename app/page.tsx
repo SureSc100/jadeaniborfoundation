@@ -9,21 +9,29 @@ export default function Home() {
       <Navbar />
       <main>
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center pt-20 pb-20 bg-gradient-to-b from-background via-background to-muted/20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
+        <section className="relative min-h-screen flex items-center px-6 py-20 bg-black">
+          <div className="absolute inset-0">
+            <img
+              src="banner.webp"
+              alt="Jade Background"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="absolute inset-0 bg-black/70"></div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 text-white">
+            <div className="flex items-center justify-center text-center">
+              <div className="space-y-6 max-w-4xl mx-auto">
                 <div className="space-y-4">
-                  <p className="text-accent font-semibold text-sm tracking-wide uppercase">WELCOME TO JADE ANIBOR</p>
-                  <h1 className="font-serif text-5xl sm:text-6xl font-bold text-foreground leading-tight">
+                  <p className="text-orange-400 font-semibold text-sm tracking-wide uppercase">WELCOME TO JADE ANIBOR</p>
+                  <h1 className="font-serif text-5xl sm:text-6xl font-bold text-white leading-tight">
                     Transformational Leadership & Strategic Growth
                   </h1>
-                  <p className="text-lg text-foreground/70 leading-relaxed">
+                  <p className="text-lg text-gray-200 leading-relaxed">
                     Empowering individuals and organizations with over 20 years of experience in leadership, personal growth, and strategic consulting.
                   </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-4 pt-8">
+                <div className="flex flex-col sm:flex-row gap-4 pt-8 justify-center">
                   <Link
                     href="/consulting"
                     className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-accent text-accent-foreground rounded-lg font-semibold hover:bg-accent/90 transition-colors"
@@ -33,32 +41,14 @@ export default function Home() {
                   </Link>
                   <Link
                     href="/books"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-3 border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary/5 transition-colors"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-3 border border-white text-white rounded-lg font-semibold hover:bg-white hover:text-black transition-colors"
                   >
                     Explore Books
                   </Link>
                 </div>
               </div>
 
-              <div className="relative h-96 sm:h-full">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-3xl" />
-                <div className="relative bg-card rounded-2xl shadow-xl border border-border/50 p-8 h-full flex flex-col justify-center items-center text-center">
-                  <div className="space-y-4">
-                    <div className="w-20 h-20 rounded-full overflow-hidden ring-2 ring-green-700/40 shadow-[0_0_25px_rgba(34,197,94,0.3)] hover:scale-105 hover:shadow-[0_0_40px_rgba(34,197,94,0.45)] transition duration-300">
-                      <img
-                        src="/images/ceo.png"
-                        alt="Jade Anibor"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <h2 className="font-serif text-2xl font-bold text-foreground">Jade Anibor</h2>
-                    <p className="text-foreground/70">Visionary Consultant & Thought Leader</p>
-                    <p className="text-sm text-foreground/60">
-                      Helping individuals and organizations unlock clarity, growth, and lasting transformation.
-                    </p>
-                  </div>
-                </div>
-              </div>
+
             </div>
           </div>
         </section>
