@@ -14,12 +14,12 @@ export default function Home() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <div className="space-y-4">
-                  <p className="text-accent font-semibold text-sm tracking-wide uppercase">Welcome to</p>
+                  <p className="text-accent font-semibold text-sm tracking-wide uppercase">WELCOME TO JADE ANIBOR</p>
                   <h1 className="font-serif text-5xl sm:text-6xl font-bold text-foreground leading-tight">
-                    Transform Your Future
+                    Transformational Leadership & Strategic Growth
                   </h1>
                   <p className="text-lg text-foreground/70 leading-relaxed">
-                    Discover the power of strategic guidance, educational excellence, and transformative consulting. Join thousands who have unlocked their potential through our comprehensive programs.
+                    Empowering individuals and organizations with over 20 years of experience in leadership, personal growth, and strategic consulting.
                   </p>
                 </div>
 
