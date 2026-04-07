@@ -44,7 +44,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-3xl" />
                 <div className="relative bg-card rounded-2xl shadow-xl border border-border/50 p-8 h-full flex flex-col justify-center items-center text-center">
                   <div className="space-y-3">
-                    <div className="w-28 h-28 rounded-full overflow-hidden mb-5 border-4 border-white shadow-[0_0_25px_rgba(34,197,94,0.18)] ring-1 ring-green-500/20">
+                    <div className="w-28 h-28 rounded-full overflow-hidden mb-5 border-4 border-white shadow-[0_0_25px_rgba(34,197,94,0.18)] ring-1 ring-green-500/20 mx-auto">
                       <img
                         src="/ceo.png"
                         alt="Jade Anibor"
