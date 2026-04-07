@@ -14,12 +14,12 @@ export default function Home() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <div className="space-y-4">
-                  <p className="text-accent font-semibold text-sm tracking-wide uppercase">Welcome to</p>
+                  <p className="text-accent font-semibold text-sm tracking-wide uppercase">WELCOME TO JADE ANIBOR</p>
                   <h1 className="font-serif text-5xl sm:text-6xl font-bold text-foreground leading-tight">
-                    Transform Your Future
+                    Transformational Leadership & Strategic Growth
                   </h1>
                   <p className="text-lg text-foreground/70 leading-relaxed">
-                    Discover the power of strategic guidance, educational excellence, and transformative consulting. Join thousands who have unlocked their potential through our comprehensive programs.
+                    Empowering individuals and organizations with over 20 years of experience in leadership, personal growth, and strategic consulting.
                   </p>
                 </div>
 
@@ -44,13 +44,17 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-3xl" />
                 <div className="relative bg-card rounded-2xl shadow-xl border border-border/50 p-8 h-full flex flex-col justify-center items-center text-center">
                   <div className="space-y-4">
-                    <div className="w-24 h-24 bg-primary rounded-full mx-auto flex items-center justify-center">
-                      <span className="text-primary-foreground font-serif text-5xl font-bold">JA</span>
+                    <div className="w-20 h-20 rounded-full overflow-hidden ring-2 ring-green-700/40 shadow-[0_0_25px_rgba(34,197,94,0.3)] hover:scale-105 hover:shadow-[0_0_40px_rgba(34,197,94,0.45)] transition duration-300">
+                      <img
+                        src="/images/ceo.png"
+                        alt="Jade Anibor"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <h2 className="font-serif text-2xl font-bold text-foreground">Jade Anibor</h2>
                     <p className="text-foreground/70">Visionary Consultant & Thought Leader</p>
                     <p className="text-sm text-foreground/60">
-                      Empowering individuals and organizations to reach their highest potential through transformation and strategic guidance.
+                      Helping individuals and organizations unlock clarity, growth, and lasting transformation.
                     </p>
                   </div>
                 </div>
@@ -66,7 +70,7 @@ export default function Home() {
               <p className="text-accent font-semibold text-sm tracking-wide uppercase mb-3">Latest</p>
               <h2 className="font-serif text-4xl sm:text-5xl font-bold text-foreground mb-4">Featured Books</h2>
               <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-                Discover transformative insights from Jade&apos;s award-winning publications
+                Practical insights for leadership, growth, and personal transformation.
               </p>
             </div>
 
@@ -131,7 +135,7 @@ export default function Home() {
                 </div>
                 <h3 className="font-serif text-2xl font-bold">Our Vision</h3>
                 <p className="text-primary-foreground/80 leading-relaxed">
-                  To create a world where every individual and organization has access to transformative guidance and resources to reach their highest potential.
+                  To help individuals and organizations achieve clarity, growth, and lasting impact.
                 </p>
               </div>
 
@@ -216,7 +220,7 @@ export default function Home() {
         <section className="py-20 bg-accent">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
             <div className="space-y-4">
-              <h2 className="font-serif text-4xl sm:text-5xl font-bold text-accent-foreground">Ready to Transform?</h2>
+              <h2 className="font-serif text-4xl sm:text-5xl font-bold text-accent-foreground">Ready to Work With Jade?</h2>
               <p className="text-lg text-accent-foreground/80">
                 Take the first step towards achieving your goals. Explore our consulting services or connect with us today.
               </p>
