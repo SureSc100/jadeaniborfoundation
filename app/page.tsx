@@ -19,19 +19,19 @@ export default function Home() {
           </div>
           <div className="absolute inset-0 bg-black/70"></div>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 text-white">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
+            <div className="flex items-center justify-center text-center">
+              <div className="space-y-6 max-w-4xl mx-auto">
                 <div className="space-y-4">
-                  <p className="text-accent font-semibold text-sm tracking-wide uppercase">WELCOME TO JADE ANIBOR</p>
-                  <h1 className="font-serif text-5xl sm:text-6xl font-bold text-foreground leading-tight">
+                  <p className="text-orange-400 font-semibold text-sm tracking-wide uppercase">WELCOME TO JADE ANIBOR</p>
+                  <h1 className="font-serif text-5xl sm:text-6xl font-bold text-white leading-tight">
                     Transformational Leadership & Strategic Growth
                   </h1>
-                  <p className="text-lg text-foreground/70 leading-relaxed">
+                  <p className="text-lg text-gray-200 leading-relaxed">
                     Empowering individuals and organizations with over 20 years of experience in leadership, personal growth, and strategic consulting.
                   </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-4 pt-8">
+                <div className="flex flex-col sm:flex-row gap-4 pt-8 justify-center">
                   <Link
                     href="/consulting"
                     className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-accent text-accent-foreground rounded-lg font-semibold hover:bg-accent/90 transition-colors"
@@ -41,7 +41,7 @@ export default function Home() {
                   </Link>
                   <Link
                     href="/books"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-3 border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary/5 transition-colors"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-3 border border-white text-white rounded-lg font-semibold hover:bg-white hover:text-black transition-colors"
                   >
                     Explore Books
                   </Link>
