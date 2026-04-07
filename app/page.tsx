@@ -135,7 +135,7 @@ export default function Home() {
                 </div>
                 <h3 className="font-serif text-2xl font-bold">Our Vision</h3>
                 <p className="text-primary-foreground/80 leading-relaxed">
-                  To create a world where every individual and organization has access to transformative guidance and resources to reach their highest potential.
+                  To help individuals and organizations achieve clarity, growth, and lasting impact.
                 </p>
               </div>
 
