@@ -46,7 +46,7 @@ export default function Home() {
                   <div className="space-y-4">
                     <div className="w-20 h-20 rounded-full overflow-hidden ring-2 ring-green-700/40 shadow-[0_0_25px_rgba(34,197,94,0.3)] hover:scale-105 hover:shadow-[0_0_40px_rgba(34,197,94,0.45)] transition duration-300">
                       <img
-                        src="/images/ceo.png"
+                        src="ceo.png"
                         alt="Jade Anibor"
                         className="w-full h-full object-cover"
                       />
