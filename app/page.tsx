@@ -54,7 +54,7 @@ export default function Home() {
                     <h2 className="font-serif text-2xl font-bold text-foreground">Jade Anibor</h2>
                     <p className="text-foreground/70">Visionary Consultant & Thought Leader</p>
                     <p className="text-sm text-foreground/60">
-                      Empowering individuals and organizations to reach their highest potential through transformation and strategic guidance.
+                      Helping individuals and organizations unlock clarity, growth, and lasting transformation.
                     </p>
                   </div>
                 </div>
