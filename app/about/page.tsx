@@ -47,8 +47,12 @@ export default function AboutPage() {
               <div className="relative h-96 sm:h-full">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-3xl" />
                 <div className="relative bg-card rounded-2xl shadow-xl border border-border/50 p-8 h-full flex flex-col justify-center items-center text-center">
-                  <div className="w-48 h-48 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mb-6">
-                    <span className="text-primary-foreground font-serif text-8xl font-bold">J</span>
+                  <div className="w-48 h-48 rounded-full overflow-hidden mb-6">
+                    <img
+                      src="/ceo.png"
+                      alt="Jade Anibor"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <h2 className="font-serif text-3xl font-bold text-foreground mb-2">Jade Anibor</h2>
                   <p className="text-accent font-semibold mb-4">Consultant & Author</p>
