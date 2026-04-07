@@ -220,7 +220,7 @@ export default function Home() {
         <section className="py-20 bg-accent">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
             <div className="space-y-4">
-              <h2 className="font-serif text-4xl sm:text-5xl font-bold text-accent-foreground">Ready to Transform?</h2>
+              <h2 className="font-serif text-4xl sm:text-5xl font-bold text-accent-foreground">Ready to Work With Jade?</h2>
               <p className="text-lg text-accent-foreground/80">
                 Take the first step towards achieving your goals. Explore our consulting services or connect with us today.
               </p>
