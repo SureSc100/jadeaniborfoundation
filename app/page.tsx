@@ -44,9 +44,9 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-3xl" />
                 <div className="relative bg-card rounded-2xl shadow-xl border border-border/50 p-8 h-full flex flex-col justify-center items-center text-center">
                   <div className="space-y-4">
-                    <div className="w-20 h-20 rounded-full overflow-hidden ring-2 ring-green-700/40 shadow-[0_0_20px_rgba(34,197,94,0.25)] hover:shadow-[0_0_30px_rgba(34,197,94,0.4)] transition duration-300">
+                    <div className="w-48 h-48 rounded-full overflow-hidden mb-6">
                       <img
-                        src="ceo.png"
+                        src="/ceo.png"
                         alt="Jade Anibor"
                         className="w-full h-full object-cover"
                       />
