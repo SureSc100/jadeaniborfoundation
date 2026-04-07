@@ -70,7 +70,7 @@ export default function Home() {
               <p className="text-accent font-semibold text-sm tracking-wide uppercase mb-3">Latest</p>
               <h2 className="font-serif text-4xl sm:text-5xl font-bold text-foreground mb-4">Featured Books</h2>
               <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-                Discover transformative insights from Jade&apos;s award-winning publications
+                Practical insights for leadership, growth, and personal transformation.
               </p>
             </div>
 
