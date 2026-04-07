@@ -9,8 +9,16 @@ export default function Home() {
       <Navbar />
       <main>
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center pt-20 pb-20 bg-gradient-to-b from-background via-background to-muted/20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <section className="relative min-h-screen flex items-center px-6 py-20 bg-black">
+          <div className="absolute inset-0">
+            <img
+              src="banner.webp"
+              alt="Jade Background"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="absolute inset-0 bg-black/70"></div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 text-white">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <div className="space-y-4">
@@ -40,25 +48,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="relative h-96 sm:h-full">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-3xl" />
-                <div className="relative bg-card rounded-2xl shadow-xl border border-border/50 p-8 h-full flex flex-col justify-center items-center text-center">
-                  <div className="space-y-3">
-                    <div className="w-58 h-58 rounded-full overflow-hidden mb-5 border-4 border-white shadow-[0_0_25px_rgba(34,197,94,0.18)] ring-1 ring-green-500/20 mx-auto">
-                      <img
-                        src="/ceo.png"
-                        alt="Jade Anibor"
-                        className="w-full h-full object-cover object-center"
-                      />
-                    </div>
-                    <h2 className="font-serif text-3xl font-bold text-foreground mb-2">Jade Anibor</h2>
-                    <p className="text-foreground/70">Visionary Consultant & Thought Leader</p>
-                    <p className="text-sm text-foreground/60">
-                      Helping individuals and organizations unlock clarity, growth, and lasting transformation.
-                    </p>
-                  </div>
-                </div>
-              </div>
+
             </div>
           </div>
         </section>
