@@ -144,25 +144,27 @@ export default function Home() {
                   <BookOpen className="text-primary" size={28} />
                 </div>
                 <h3 className="font-serif text-2xl font-bold">Our Values</h3>
-                <div class="mb-4">
-                  <strong>Compassion</strong> – We are driven by empathy and a deep commitment to improving lives.
-                </div>
+                <p className="text-primary-foreground/80 leading-relaxed">
+                  <div className="mb-4">
+                    <strong>Compassion</strong> – We are driven by empathy and a deep commitment to improving lives.
+                  </div>
 
-                <div class="mb-4">
-                  <strong>Impact</strong> – We focus on creating meaningful and lasting change in communities.
-                </div>
+                  <div className="mb-4">
+                    <strong>Impact</strong> – We focus on creating meaningful and lasting change in communities.
+                  </div>
 
-                <div class="mb-4">
-                  <strong>Dignity</strong> – We believe every girl and woman deserves confidence and self-worth.
-                </div>
+                  <div className="mb-4">
+                    <strong>Dignity</strong> – We believe every girl and woman deserves confidence and self-worth.
+                  </div>
 
-                <div class="mb-4">
-                  <strong>Empowerment</strong> – We equip individuals with the resources and knowledge to thrive.
-                </div>
+                  <div className="mb-4">
+                    <strong>Empowerment</strong> – We equip individuals with the resources and knowledge to thrive.
+                  </div>
 
-                <div>
-                  <strong>Integrity</strong> – We operate with honesty, transparency, and accountability.
-                </div>
+                  <div>
+                    <strong>Integrity</strong> – We operate with honesty, transparency, and accountability.
+                  </div>
+                </p>
               </div>
             </div>
           </div>
