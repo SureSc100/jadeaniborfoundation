@@ -14,7 +14,7 @@ export default function FoundationPage() {
       <Navbar />
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-16 bg-gradient-to-b from-primary/10 to-background">
+        <section className="pt-32 pb-16 bg-linear-to-b from-primary/10 to-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="space-y-4 text-center mb-12">
               <p className="text-accent font-semibold text-sm tracking-wide uppercase">Community Impact</p>
