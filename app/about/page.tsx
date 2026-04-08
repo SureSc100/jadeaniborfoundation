@@ -14,7 +14,7 @@ export default function AboutPage() {
       <Navbar />
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-16 bg-gradient-to-b from-muted/40 to-background">
+        <section className="pt-32 pb-16 bg-linear-to-b from-muted/40 to-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
@@ -45,18 +45,16 @@ export default function AboutPage() {
               </div>
 
               <div className="relative h-96 sm:h-full">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-3xl" />
+                <div className="absolute inset-0 bg-linear-to-br from-primary/20 to-accent/20 rounded-2xl blur-3xl" />
                 <div className="relative bg-card rounded-2xl shadow-xl border border-border/50 p-8 h-full flex flex-col justify-center items-center text-center">
-                  <div className="w-48 h-48 rounded-full overflow-hidden mb-6">
+                  <div className="w-full max-w-sm mx-auto rounded-2xl overflow-hidden shadow-2xl border border-black/5">
                     <img
                       src="/ceo.png"
                       alt="Jade Anibor"
-                      className="w-full h-full object-cover"
+                      className="w-full h-[480px] object-cover"
                     />
                   </div>
-                  <h2 className="font-serif text-3xl font-bold text-foreground mb-2">Jade Anibor</h2>
-                  <p className="text-accent font-semibold mb-4">Consultant & Author</p>
-                  <p className="text-sm text-foreground/70">20+ Years in Transformational Leadership</p>
+
                 </div>
               </div>
             </div>

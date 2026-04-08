@@ -180,12 +180,19 @@ export default function Home() {
             <div className="grid lg:grid-cols-5 gap-12 items-start">
               <div className="lg:col-span-2">
                 <div className="sticky top-24 bg-card rounded-xl shadow-md border border-border/50 p-8 text-center space-y-4">
-                  <div className="w-32 h-32 bg-gradient-to-br from-primary to-accent rounded-full mx-auto flex items-center justify-center">
-                    <span className="text-primary-foreground font-serif text-6xl font-bold">J</span>
+                  <div className="w-32 h-32 mx-auto rounded-full overflow-hidden 
+                ring-4 ring-white 
+                shadow-[0_0_30px_rgba(34,197,94,0.25)] 
+                transition duration-300 hover:scale-105">
+                    <img
+                      src="ceo.png"
+                      alt="Jade Anibor"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div>
                     <h3 className="font-serif text-2xl font-bold text-foreground">Jade Anibor</h3>
-                    <p className="text-accent font-semibold text-sm mt-2">Visionary Consultant & Author</p>
+                    <p className="text-accent font-semibold text-sm mt-2">Consultant & Author</p>
                   </div>
                 </div>
               </div>
@@ -232,9 +239,9 @@ export default function Home() {
         <section className="py-20 bg-accent">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
             <div className="space-y-4">
-              <h2 className="font-serif text-4xl sm:text-5xl font-bold text-accent-foreground">Ready to Work With Jade?</h2>
+              <h2 className="font-serif text-4xl sm:text-5xl font-bold text-accent-foreground">Join the Mission</h2>
               <p className="text-lg text-accent-foreground/80">
-                Take the first step towards achieving your goals. Explore our consulting services or connect with us today.
+                Every book purchased and every donation made brings us one step closer to ending period poverty. Together, we can restore dignity and create lasting impact..
               </p>
             </div>
 
@@ -243,14 +250,14 @@ export default function Home() {
                 href="/consulting"
                 className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-accent-foreground text-accent rounded-lg font-semibold hover:bg-accent-foreground/90 transition-colors"
               >
-                Explore Consulting
+                Support the Mission
                 <ArrowRight size={20} />
               </Link>
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center gap-2 px-8 py-3 border-2 border-accent-foreground text-accent-foreground rounded-lg font-semibold hover:bg-accent-foreground/10 transition-colors"
               >
-                Get in Touch
+                Explore Our Books
               </Link>
             </div>
           </div>
