@@ -144,10 +144,25 @@ export default function Home() {
                   <BookOpen className="text-primary" size={28} />
                 </div>
                 <h3 className="font-serif text-2xl font-bold">Our Values</h3>
-                <p className="text-primary-foreground/80 leading-relaxed">
+                <div class="mb-4">
+                  <strong>Compassion</strong> – We are driven by empathy and a deep commitment to improving lives.
+                </div>
 
-                  Integrity, excellence, continuous growth, and meaningful impact are at the core of everything we do. We believe in creating lasting change.
-                </p>
+                <div class="mb-4">
+                  <strong>Impact</strong> – We focus on creating meaningful and lasting change in communities.
+                </div>
+
+                <div class="mb-4">
+                  <strong>Dignity</strong> – We believe every girl and woman deserves confidence and self-worth.
+                </div>
+
+                <div class="mb-4">
+                  <strong>Empowerment</strong> – We equip individuals with the resources and knowledge to thrive.
+                </div>
+
+                <div>
+                  <strong>Integrity</strong> – We operate with honesty, transparency, and accountability.
+                </div>
               </div>
             </div>
           </div>
