@@ -85,7 +85,7 @@ export default function Home() {
                 <Link
                   key={idx}
                   href="/books"
-                  className="group bg-card rounded-xl shadow-md border border-border/50 overflow-hidden hover:shadow-lg hover:border-primary/30 transition-all duration-300"
+                  className="bg-card rounded-xl shadow-md group border border-border/50 overflow-hidden hover:shadow-lg hover:border-primary/30 transition-all duration-300"
                 >
                   <div className="h-80 bg-white flex items-center justify-center p-6">
                     <img
