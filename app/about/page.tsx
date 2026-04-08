@@ -21,7 +21,7 @@ export default function AboutPage() {
                 <div>
                   <p className="text-accent font-semibold text-sm tracking-wide uppercase mb-2">About</p>
                   <h1 className="font-serif text-5xl sm:text-6xl font-bold text-foreground">Jade Anibor</h1>
-                  <p className="text-xl text-primary font-semibold mt-3">Visionary Consultant & Transformational Leader</p>
+                  <p className="text-xl text-primary font-semibold mt-3"> Consultant & Transformational Leader</p>
                 </div>
 
                 <p className="text-lg text-foreground/70 leading-relaxed">
