@@ -17,7 +17,7 @@ const books = [
     rating: 4.9,
     reviews: 1250,
     price: 24.99,
-    image: '📚',
+    image: '4k-flyerArtboard-1.png',
     description:
       'Learn the principles of transforming vision into reality through strategic planning and decisive action. This comprehensive guide provides actionable frameworks used by Fortune 500 companies.',
     highlights: [
@@ -35,7 +35,7 @@ const books = [
     rating: 4.8,
     reviews: 980,
     price: 22.99,
-    image: '💼',
+    image: '4k-flyerArtboard-1.png',
     description:
       'Master the fundamentals of creating sustainable, profitable businesses with lasting impact. Discover proven strategies for scaling, profitability, and building exceptional teams.',
     highlights: [
@@ -53,7 +53,7 @@ const books = [
     rating: 4.9,
     reviews: 1450,
     price: 19.99,
-    image: '✨',
+    image: '4k-flyerArtboard-1.png',
     description:
       'Unlock your inner potential and cultivate the mindset needed for extraordinary success. A transformative journey through personal empowerment and achievement.',
     highlights: [
@@ -149,8 +149,12 @@ export default function BooksPage() {
                   className="bg-card rounded-xl shadow-md border border-border/50 overflow-hidden hover:shadow-xl hover:border-primary/30 transition-all duration-300 flex flex-col"
                 >
                   {/* Book Cover */}
-                  <div className="aspect-square bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center text-9xl p-8">
-                    {book.image}
+                  <div className="h-80 bg-white flex items-center justify-center p-6 border-b border-border/40">
+                    <img
+                      src={book.image}
+                      alt={book.title}
+                      className="h-full w-auto object-contain"
+                    />
                   </div>
 
                   {/* Book Details */}
