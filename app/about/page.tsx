@@ -14,7 +14,7 @@ export default function AboutPage() {
       <Navbar />
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-16 bg-gradient-to-b from-muted/40 to-background">
+        <section className="pt-32 pb-16 bg-linear-to-b from-muted/40 to-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
@@ -45,7 +45,7 @@ export default function AboutPage() {
               </div>
 
               <div className="relative h-96 sm:h-full">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-3xl" />
+                <div className="absolute inset-0 bg-linear-to-br from-primary/20 to-accent/20 rounded-2xl blur-3xl" />
                 <div className="relative bg-card rounded-2xl shadow-xl border border-border/50 p-8 h-full flex flex-col justify-center items-center text-center">
                   <div className="w-full max-w-sm mx-auto rounded-2xl overflow-hidden shadow-2xl border border-black/5">
                     <img
