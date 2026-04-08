@@ -12,7 +12,7 @@ export default function Home() {
         <section className="relative min-h-screen flex items-center px-6 py-20 bg-black">
           <div className="absolute inset-0">
             <img
-              src="banner.webp"
+              src="newo.jpg"
               alt="Jade Background"
               className="w-full h-full object-cover"
             />
@@ -22,12 +22,12 @@ export default function Home() {
             <div className="flex items-center justify-center text-center">
               <div className="space-y-6 max-w-4xl mx-auto">
                 <div className="space-y-4">
-                  <p className="text-orange-400 font-semibold text-sm tracking-wide uppercase">WELCOME TO JADE ANIBOR</p>
+                  <p className="text-orange-400 font-semibold text-sm tracking-wide uppercase">WELCOME TO JADE ANIBOR FOUNDATION</p>
                   <h1 className="font-serif text-5xl sm:text-6xl font-bold text-white leading-tight">
-                    Transformational Leadership & Strategic Growth
+                    Ending Period Poverty, Restoring Dignity
                   </h1>
                   <p className="text-lg text-gray-200 leading-relaxed">
-                    Empowering individuals and organizations with over 20 years of experience in leadership, personal growth, and strategic consulting.
+                    Millions of girls and women face period poverty every day, lacking access to basic menstrual hygiene. Through our books, outreach programs, and community initiatives, we provide sanitary support, education, and hope — empowering lives and restoring dignity across Africa.
                   </p>
                 </div>
 
@@ -36,14 +36,14 @@ export default function Home() {
                     href="/consulting"
                     className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-accent text-accent-foreground rounded-lg font-semibold hover:bg-accent/90 transition-colors"
                   >
-                    Get Started
+                    Support the Mission
                     <ArrowRight size={20} />
                   </Link>
                   <Link
                     href="/books"
                     className="inline-flex items-center justify-center gap-2 px-8 py-3 border border-white text-white rounded-lg font-semibold hover:bg-white hover:text-black transition-colors"
                   >
-                    Explore Books
+                    Explore Our Books
                   </Link>
                 </div>
               </div>
@@ -125,7 +125,9 @@ export default function Home() {
                 </div>
                 <h3 className="font-serif text-2xl font-bold">Our Vision</h3>
                 <p className="text-primary-foreground/80 leading-relaxed">
-                  To help individuals and organizations achieve clarity, growth, and lasting impact.
+                  Empowering Lives Through Dignity and Access
+
+                  We envision a future where no girl or woman is held back by lack of access to menstrual hygiene. By reaching young girls and indigent women across Africa, we aim to create a society where dignity, confidence, and proper hygiene are accessible to all. Our goal is to build stronger communities where every individual can thrive without limitation.
                 </p>
               </div>
 
@@ -135,7 +137,9 @@ export default function Home() {
                 </div>
                 <h3 className="font-serif text-2xl font-bold">Our Mission</h3>
                 <p className="text-primary-foreground/80 leading-relaxed">
-                  To empower individuals and businesses through strategic consulting, education, and practical tools that drive sustainable transformation and excellence.
+                  Combating Period Poverty, One Book at a Time
+
+                  We are committed to reducing period poverty by transforming knowledge into impact. Through book-driven fundraising, outreach programs, and community support, we provide sanitary pads and essential resources to those in need. Every initiative we undertake is focused on restoring dignity, improving health, and creating opportunities for a better future.
                 </p>
               </div>
 
@@ -145,7 +149,25 @@ export default function Home() {
                 </div>
                 <h3 className="font-serif text-2xl font-bold">Our Values</h3>
                 <p className="text-primary-foreground/80 leading-relaxed">
-                  Integrity, excellence, continuous growth, and meaningful impact are at the core of everything we do. We believe in creating lasting change.
+                  <div className="mb-4">
+                    <strong>Compassion</strong> – We are driven by empathy and a deep commitment to improving lives.
+                  </div>
+
+                  <div className="mb-4">
+                    <strong>Impact</strong> – We focus on creating meaningful and lasting change in communities.
+                  </div>
+
+                  <div className="mb-4">
+                    <strong>Dignity</strong> – We believe every girl and woman deserves confidence and self-worth.
+                  </div>
+
+                  <div className="mb-4">
+                    <strong>Empowerment</strong> – We equip individuals with the resources and knowledge to thrive.
+                  </div>
+
+                  <div>
+                    <strong>Integrity</strong> – We operate with honesty, transparency, and accountability.
+                  </div>
                 </p>
               </div>
             </div>
