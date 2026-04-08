@@ -125,7 +125,9 @@ export default function Home() {
                 </div>
                 <h3 className="font-serif text-2xl font-bold">Our Vision</h3>
                 <p className="text-primary-foreground/80 leading-relaxed">
-                  To help individuals and organizations achieve clarity, growth, and lasting impact.
+                  Empowering Lives Through Dignity and Access
+
+                  We envision a future where no girl or woman is held back by lack of access to menstrual hygiene. By reaching young girls and indigent women across Africa, we aim to create a society where dignity, confidence, and proper hygiene are accessible to all. Our goal is to build stronger communities where every individual can thrive without limitation.
                 </p>
               </div>
 
@@ -135,7 +137,9 @@ export default function Home() {
                 </div>
                 <h3 className="font-serif text-2xl font-bold">Our Mission</h3>
                 <p className="text-primary-foreground/80 leading-relaxed">
-                  To empower individuals and businesses through strategic consulting, education, and practical tools that drive sustainable transformation and excellence.
+                  Combating Period Poverty, One Book at a Time
+
+                  We are committed to reducing period poverty by transforming knowledge into impact. Through book-driven fundraising, outreach programs, and community support, we provide sanitary pads and essential resources to those in need. Every initiative we undertake is focused on restoring dignity, improving health, and creating opportunities for a better future.
                 </p>
               </div>
 
