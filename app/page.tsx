@@ -69,17 +69,17 @@ export default function Home() {
                 {
                   title: 'The Art of Strategic Transformation',
                   description: 'Learn the principles of transforming vision into reality through strategic planning and decisive action.',
-                  image: '📚',
+                  image: '4k-flyerArtboard-1.png',
                 },
                 {
                   title: 'Building Business Excellence',
                   description: 'Master the fundamentals of creating sustainable, profitable businesses with lasting impact.',
-                  image: '💼',
+                  image: '4k-flyerArtboard-1.png',
                 },
                 {
                   title: 'The Path to Personal Power',
                   description: 'Unlock your inner potential and cultivate the mindset needed for extraordinary success.',
-                  image: '✨',
+                  image: '4k-flyerArtboard-1.png',
                 },
               ].map((book, idx) => (
                 <Link
@@ -87,8 +87,12 @@ export default function Home() {
                   href="/books"
                   className="group bg-card rounded-xl shadow-md border border-border/50 overflow-hidden hover:shadow-lg hover:border-primary/30 transition-all duration-300"
                 >
-                  <div className="aspect-square bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center text-6xl group-hover:scale-110 transition-transform">
-                    {book.image}
+                  <div className="h-80 bg-white flex items-center justify-center p-6">
+                    <img
+                      src={book.image}
+                      alt={book.title}
+                      className="h-full w-auto object-contain"
+                    />
                   </div>
                   <div className="p-6 space-y-3">
                     <h3 className="font-serif text-lg font-bold text-foreground group-hover:text-primary transition-colors">
@@ -190,10 +194,7 @@ export default function Home() {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div>
-                    <h3 className="font-serif text-2xl font-bold text-foreground">Jade Anibor</h3>
-                    <p className="text-accent font-semibold text-sm mt-2">Consultant & Author</p>
-                  </div>
+
                 </div>
               </div>
 
