@@ -145,96 +145,104 @@ export default function Home() {
                 </div>
                 <h3 className="font-serif text-2xl font-bold">Our Values</h3>
                 <p className="text-primary-foreground/80 leading-relaxed">
-                  Integrity, excellence, continuous growth, and meaningful impact are at the core of everything we do. We believe in creating lasting change.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+                  Compassion  We are driven by empathy and a deep commitment to improving lives.<br><br>
 
-        {/* Bio Section */}
-        <section className="py-20 bg-background">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-5 gap-12 items-start">
-              <div className="lg:col-span-2">
-                <div className="sticky top-24 bg-card rounded-xl shadow-md border border-border/50 p-8 text-center space-y-4">
-                  <div className="w-32 h-32 bg-gradient-to-br from-primary to-accent rounded-full mx-auto flex items-center justify-center">
-                    <span className="text-primary-foreground font-serif text-6xl font-bold">J</span>
-                  </div>
-                  <div>
-                    <h3 className="font-serif text-2xl font-bold text-foreground">Jade Anibor</h3>
-                    <p className="text-accent font-semibold text-sm mt-2">Visionary Consultant & Author</p>
-                  </div>
-                </div>
-              </div>
+                    Impact – We focus on creating meaningful and lasting change in communities.<br><br>
 
-              <div className="lg:col-span-3 space-y-6">
-                <div>
-                  <p className="text-sm text-accent font-semibold tracking-wide uppercase mb-2">About</p>
-                  <h2 className="font-serif text-4xl font-bold text-foreground mb-6">Jade&apos;s Journey</h2>
-                </div>
+                      Dignity – We believe every girl and woman deserves confidence and self-worth.<br><br>
 
-                <div className="space-y-4 text-foreground/70 leading-relaxed">
-                  <p>
-                    With over two decades of experience in strategic business consulting and personal transformation, Jade Anibor has become a trusted voice in helping individuals and organizations unlock their full potential. Her unique approach combines practical business acumen with deep insights into human psychology and organizational behavior.
-                  </p>
+                        Empowerment – We equip individuals with the resources and knowledge to thrive.<br><br>
 
-                  <p>
-                    Jade&apos;s consulting firm has worked with hundreds of executives, entrepreneurs, and leaders across multiple industries, helping them navigate complex challenges and achieve breakthrough results. Her methodologies have been proven to increase organizational effectiveness, improve leadership capabilities, and drive sustainable growth.
-                  </p>
+                          Integrity – We operate with honesty, transparency, and accountability.
+                        </p>
+                        </div>
+                      </div>
+                      </div>
+                    </section>
 
-                  <p>
-                    As an accomplished author, Jade has published multiple bestselling books that have influenced thousands of readers worldwide. Her written work focuses on practical strategies for success, personal empowerment, and organizational transformation. Each publication is grounded in real-world experience and backed by comprehensive research.
-                  </p>
+                      {/* Bio Section */}
+                      <section className="py-20 bg-background">
+                        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                          <div className="grid lg:grid-cols-5 gap-12 items-start">
+                            <div className="lg:col-span-2">
+                              <div className="sticky top-24 bg-card rounded-xl shadow-md border border-border/50 p-8 text-center space-y-4">
+                                <div className="w-32 h-32 bg-gradient-to-br from-primary to-accent rounded-full mx-auto flex items-center justify-center">
+                                  <span className="text-primary-foreground font-serif text-6xl font-bold">J</span>
+                                </div>
+                                <div>
+                                  <h3 className="font-serif text-2xl font-bold text-foreground">Jade Anibor</h3>
+                                  <p className="text-accent font-semibold text-sm mt-2">Visionary Consultant & Author</p>
+                                </div>
+                              </div>
+                            </div>
 
-                  <p>
-                    Beyond consulting and writing, Jade is passionate about education and giving back to communities. Through the Jade Anibor Foundation, she provides scholarships, mentorship programs, and resources to emerging leaders and entrepreneurs who are committed to making a positive impact.
-                  </p>
-                </div>
+                            <div className="lg:col-span-3 space-y-6">
+                              <div>
+                                <p className="text-sm text-accent font-semibold tracking-wide uppercase mb-2">About</p>
+                                <h2 className="font-serif text-4xl font-bold text-foreground mb-6">Jade&apos;s Journey</h2>
+                              </div>
 
-                <div className="pt-6">
-                  <Link
-                    href="/about"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors"
-                  >
-                    Read Full Bio
-                    <ArrowRight size={20} />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+                              <div className="space-y-4 text-foreground/70 leading-relaxed">
+                                <p>
+                                  With over two decades of experience in strategic business consulting and personal transformation, Jade Anibor has become a trusted voice in helping individuals and organizations unlock their full potential. Her unique approach combines practical business acumen with deep insights into human psychology and organizational behavior.
+                                </p>
 
-        {/* CTA Section */}
-        <section className="py-20 bg-accent">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-            <div className="space-y-4">
-              <h2 className="font-serif text-4xl sm:text-5xl font-bold text-accent-foreground">Ready to Work With Jade?</h2>
-              <p className="text-lg text-accent-foreground/80">
-                Take the first step towards achieving your goals. Explore our consulting services or connect with us today.
-              </p>
-            </div>
+                                <p>
+                                  Jade&apos;s consulting firm has worked with hundreds of executives, entrepreneurs, and leaders across multiple industries, helping them navigate complex challenges and achieve breakthrough results. Her methodologies have been proven to increase organizational effectiveness, improve leadership capabilities, and drive sustainable growth.
+                                </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-              <Link
-                href="/consulting"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-accent-foreground text-accent rounded-lg font-semibold hover:bg-accent-foreground/90 transition-colors"
-              >
-                Explore Consulting
-                <ArrowRight size={20} />
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3 border-2 border-accent-foreground text-accent-foreground rounded-lg font-semibold hover:bg-accent-foreground/10 transition-colors"
-              >
-                Get in Touch
-              </Link>
-            </div>
-          </div>
-        </section>
-      </main>
-      <Footer />
-    </>
-  )
+                                <p>
+                                  As an accomplished author, Jade has published multiple bestselling books that have influenced thousands of readers worldwide. Her written work focuses on practical strategies for success, personal empowerment, and organizational transformation. Each publication is grounded in real-world experience and backed by comprehensive research.
+                                </p>
+
+                                <p>
+                                  Beyond consulting and writing, Jade is passionate about education and giving back to communities. Through the Jade Anibor Foundation, she provides scholarships, mentorship programs, and resources to emerging leaders and entrepreneurs who are committed to making a positive impact.
+                                </p>
+                              </div>
+
+                              <div className="pt-6">
+                                <Link
+                                  href="/about"
+                                  className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors"
+                                >
+                                  Read Full Bio
+                                  <ArrowRight size={20} />
+                                </Link>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+
+                      {/* CTA Section */}
+                      <section className="py-20 bg-accent">
+                        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+                          <div className="space-y-4">
+                            <h2 className="font-serif text-4xl sm:text-5xl font-bold text-accent-foreground">Ready to Work With Jade?</h2>
+                            <p className="text-lg text-accent-foreground/80">
+                              Take the first step towards achieving your goals. Explore our consulting services or connect with us today.
+                            </p>
+                          </div>
+
+                          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+                            <Link
+                              href="/consulting"
+                              className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-accent-foreground text-accent rounded-lg font-semibold hover:bg-accent-foreground/90 transition-colors"
+                            >
+                              Explore Consulting
+                              <ArrowRight size={20} />
+                            </Link>
+                            <Link
+                              href="/contact"
+                              className="inline-flex items-center justify-center gap-2 px-8 py-3 border-2 border-accent-foreground text-accent-foreground rounded-lg font-semibold hover:bg-accent-foreground/10 transition-colors"
+                            >
+                              Get in Touch
+                            </Link>
+                          </div>
+                        </div>
+                      </section>
+                    </main>
+                    <Footer />
+                  </>
+                    )
 }
