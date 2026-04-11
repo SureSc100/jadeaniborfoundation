@@ -69,17 +69,17 @@ export default function Home() {
                 {
                   title: 'The Art of Strategic Transformation',
                   description: 'Learn the principles of transforming vision into reality through strategic planning and decisive action.',
-                  image: '4k-flyerArtboard-1.png',
+                  image: 'giants.jpeg',
                 },
                 {
                   title: 'Building Business Excellence',
                   description: 'Master the fundamentals of creating sustainable, profitable businesses with lasting impact.',
-                  image: '4k-flyerArtboard-1.png',
+                  image: 'pat.jpeg',
                 },
                 {
                   title: 'The Path to Personal Power',
                   description: 'Unlock your inner potential and cultivate the mindset needed for extraordinary success.',
-                  image: '4k-flyerArtboard-1.png',
+                  image: 'lies.jpeg',
                 },
               ].map((book, idx) => (
                 <Link
@@ -87,12 +87,17 @@ export default function Home() {
                   href="/books"
                   className="bg-card rounded-xl shadow-md group border border-border/50 overflow-hidden hover:shadow-lg hover:border-primary/30 transition-all duration-300"
                 >
-                  <div className="h-80 bg-white flex items-center justify-center px-3 py-5">
-                    <img
-                      src={book.image}
-                      alt={book.title}
-                      className="h-full w-full max-w-none object-contain transition-transform duration-300 group-hover:scale-[1.03]"
-                    />
+                  <div className="border-b border-border/40 bg-linear-to-b from-muted/30 to-background p-5">
+                    {/* frame */}
+                    <div className="mx-auto w-full max-w-[280px] rounded-2xl bg-linear-to-br from-primary/25 to-accent/25 p-px shadow-xl">
+                      <div className="overflow-hidden rounded-2xl bg-white">
+                        <img
+                          src={book.image}
+                          alt={book.title}
+                          className="aspect-3/4 w-full object-cover object-center scale-[1.08] transition-transform duration-500 group-hover:scale-[1.12]"
+                        />
+                      </div>
+                    </div>
                   </div>
                   <div className="p-6 space-y-3">
                     <h3 className="font-serif text-lg font-bold text-foreground group-hover:text-primary transition-colors">

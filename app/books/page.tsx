@@ -17,7 +17,7 @@ const books = [
     rating: 4.9,
     reviews: 1250,
     price: 24.99,
-    image: '4k-flyerArtboard-1.png',
+    image: 'giants.jpeg',
     description:
       'Learn the principles of transforming vision into reality through strategic planning and decisive action. This comprehensive guide provides actionable frameworks used by Fortune 500 companies.',
     highlights: [
@@ -35,7 +35,7 @@ const books = [
     rating: 4.8,
     reviews: 980,
     price: 22.99,
-    image: '4k-flyerArtboard-1.png',
+    image: 'lies.jpeg',
     description:
       'Master the fundamentals of creating sustainable, profitable businesses with lasting impact. Discover proven strategies for scaling, profitability, and building exceptional teams.',
     highlights: [
@@ -53,7 +53,7 @@ const books = [
     rating: 4.9,
     reviews: 1450,
     price: 19.99,
-    image: '4k-flyerArtboard-1.png',
+    image: 'pat.jpeg',
     description:
       'Unlock your inner potential and cultivate the mindset needed for extraordinary success. A transformative journey through personal empowerment and achievement.',
     highlights: [
@@ -71,7 +71,7 @@ const books = [
     rating: 4.7,
     reviews: 820,
     price: 26.99,
-    image: '👥',
+    image: 'manage.jpeg',
     description:
       'Navigate modern leadership challenges with proven strategies. Learn how to inspire, motivate, and lead diverse teams in today&apos;s dynamic business environment.',
     highlights: [
@@ -89,7 +89,7 @@ const books = [
     rating: 4.6,
     reviews: 650,
     price: 23.99,
-    image: '💡',
+    image: 'paint.jpeg',
     description:
       'Discover how to foster innovation and think disruptively. Essential strategies for staying ahead of market trends and creating breakthrough solutions.',
     highlights: [
@@ -107,7 +107,7 @@ const books = [
     rating: 4.8,
     reviews: 1100,
     price: 21.99,
-    image: '🚀',
+    image: 'robot.jpeg',
     description:
       'A practical guide for aspiring and established entrepreneurs. From startup to scale-up, master the essential skills needed to build a thriving business.',
     highlights: [
@@ -149,12 +149,17 @@ export default function BooksPage() {
                   className="bg-card rounded-xl shadow-md border border-border/50 overflow-hidden hover:shadow-xl hover:border-primary/30 transition-all duration-300 flex flex-col"
                 >
                   {/* Book Cover */}
-                  <div className="h-80 bg-white flex items-center justify-center px-3 py-5 border-b border-border/40">
-                    <img
-                      src={book.image}
-                      alt={book.title}
-                      className="h-full w-full max-w-none object-contain transition-transform duration-300 hover:scale-[1.03]"
-                    />
+                  <div className="border-b border-border/40 bg-linear-to-b from-muted/30 to-background p-5">
+                    {/* frame */}
+                    <div className="mx-auto w-full max-w-[280px] rounded-2xl bg-linear-to-br from-primary/25 to-accent/25 p-px shadow-xl">
+                      <div className="overflow-hidden rounded-2xl bg-white">
+                        <img
+                          src={book.image}
+                          alt={book.title}
+                          className="aspect-3/4 w-full object-cover object-center scale-[1.08] transition-transform duration-500 group-hover:scale-[1.12]"
+                        />
+                      </div>
+                    </div>
                   </div>
 
                   {/* Book Details */}
