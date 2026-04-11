@@ -44,17 +44,16 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              <div className="relative h-96 sm:h-full">
-                <div className="absolute inset-0 bg-linear-to-br from-primary/20 to-accent/20 rounded-2xl blur-3xl" />
-                <div className="relative bg-card rounded-2xl shadow-xl border border-border/50 p-8 h-full flex flex-col justify-center items-center text-center">
-                  <div className="w-full max-w-sm mx-auto rounded-2xl overflow-hidden shadow-2xl border border-black/5">
+              <div className="relative mx-auto flex h-full max-w-md items-center justify-center rounded-3xl border border-border/40 bg-card/80 p-5 shadow-[0_24px_60px_-25px_rgba(0,0,0,0.45)] backdrop-blur">
+                {/* Premium thin gradient frame */}
+                <div className="w-full rounded-3xl bg-linear-to-br from-primary/35 to-accent/35 p-px shadow-2xl">
+                  <div className="overflow-hidden rounded-3xl bg-background">
                     <img
                       src="/ceo.png"
                       alt="Jade Anibor"
-                      className="w-full h-[480px] object-cover"
+                      className="aspect-4/5 w-full object-cover"
                     />
                   </div>
-
                 </div>
               </div>
             </div>
