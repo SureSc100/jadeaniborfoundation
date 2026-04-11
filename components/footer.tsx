@@ -8,13 +8,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-primary-foreground rounded-lg flex items-center justify-center">
-                <span className="text-primary font-serif text-xl font-bold">JA</span>
-              </div>
+            <div className="bg-white p-2 rounded-md inline-block h-16">
+              <img
+                src="Jalogo.png"
+                alt="Jade Anibor Foundation"
+                className="h-12 w-auto"
+              />
               <div>
-                <p className="font-serif text-lg font-bold">Jade Anibor</p>
-                <p className="text-sm opacity-90">Foundation</p>
+
               </div>
             </div>
             <p className="text-sm opacity-80 leading-relaxed">
