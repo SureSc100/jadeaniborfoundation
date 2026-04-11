@@ -87,11 +87,11 @@ export default function Home() {
                   href="/books"
                   className="bg-card rounded-xl shadow-md group border border-border/50 overflow-hidden hover:shadow-lg hover:border-primary/30 transition-all duration-300"
                 >
-                  <div className="h-80 bg-white flex items-center justify-center p-6">
+                  <div className="h-80 bg-white flex items-center justify-center px-3 py-5">
                     <img
                       src={book.image}
                       alt={book.title}
-                      className="h-full w-auto object-contain"
+                      className="h-full w-full max-w-none object-contain transition-transform duration-300 group-hover:scale-[1.03]"
                     />
                   </div>
                   <div className="p-6 space-y-3">
