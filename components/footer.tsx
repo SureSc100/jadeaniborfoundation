@@ -82,19 +82,19 @@ export function Footer() {
             <h3 className="font-serif font-bold text-lg mb-4">Contact</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
-                <Mail size={18} className="mt-0.5 flex-shrink-0" />
+                <Mail size={18} className="mt-0.5 shrink-0" />
                 <a href="mailto:hello@jadeanibor.com" className="text-sm opacity-90 hover:opacity-100 transition-opacity">
                   hello@jadeanibor.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <Phone size={18} className="mt-0.5 flex-shrink-0" />
+                <Phone size={18} className="mt-0.5 shrink-0" />
                 <a href="tel:+1234567890" className="text-sm opacity-90 hover:opacity-100 transition-opacity">
                   +1 (234) 567-8900
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <MapPin size={18} className="mt-0.5 flex-shrink-0" />
+                <MapPin size={18} className="mt-0.5 shrink-0" />
                 <span className="text-sm opacity-90">New York, NY</span>
               </li>
             </ul>
@@ -104,7 +104,7 @@ export function Footer() {
         {/* Divider */}
         <div className="border-t border-primary-foreground/20 pt-8">
           <p className="text-center text-sm opacity-80">
-            © 2024 Jade Anibor Foundation. All rights reserved.
+            © 2026 Jade Anibor Foundation. All rights reserved.
           </p>
         </div>
       </div>

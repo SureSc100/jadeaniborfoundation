@@ -125,7 +125,7 @@ export default function BooksPage() {
       <Navbar />
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-16 bg-gradient-to-b from-muted/40 to-background">
+        <section className="pt-32 pb-16 bg-linear-to-b from-muted/40 to-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="space-y-4 text-center mb-12">
               <p className="text-accent font-semibold text-sm tracking-wide uppercase">Library</p>
@@ -149,16 +149,16 @@ export default function BooksPage() {
                   className="bg-card rounded-xl shadow-md border border-border/50 overflow-hidden hover:shadow-xl hover:border-primary/30 transition-all duration-300 flex flex-col"
                 >
                   {/* Book Cover */}
-                  <div className="h-80 bg-white flex items-center justify-center p-6 border-b border-border/40">
+                  <div className="h-80 bg-white flex items-center justify-center px-3 py-5 border-b border-border/40">
                     <img
                       src={book.image}
                       alt={book.title}
-                      className="h-full w-auto object-contain"
+                      className="h-full w-full max-w-none object-contain transition-transform duration-300 hover:scale-[1.03]"
                     />
                   </div>
 
                   {/* Book Details */}
-                  <div className="p-6 flex flex-col flex-grow">
+                  <div className="p-6 flex flex-col grow">
                     <h3 className="font-serif text-xl font-bold text-foreground mb-2">{book.title}</h3>
 
                     <div className="flex items-center gap-2 mb-4">
@@ -176,7 +176,7 @@ export default function BooksPage() {
                       </span>
                     </div>
 
-                    <p className="text-foreground/70 text-sm mb-4 flex-grow">{book.description}</p>
+                    <p className="text-foreground/70 text-sm mb-4 grow">{book.description}</p>
 
                     <div className="space-y-3 mb-4">
                       <p className="text-xs text-foreground/50 font-semibold tracking-wide uppercase">Key Topics</p>
