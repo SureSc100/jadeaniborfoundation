@@ -8,11 +8,11 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <div className="bg-white p-2 rounded-md inline-block h-16">
+            <div className=" rounded-md inline-block h-20">
               <img
-                src="Jalogo.png"
+                src="logo.png"
                 alt="Jade Anibor Foundation"
-                className="h-12 w-auto"
+                className="h-20 w-auto"
               />
               <div>
 
