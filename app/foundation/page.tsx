@@ -29,7 +29,7 @@ export default function FoundationPage() {
 
             <div className="grid md:grid-cols-3 gap-6 pt-8">
               {[
-                { icon: '🎓', label: 'Scholarships', value: '$2M+' },
+                { icon: '🎓', label: 'Scholarships', value: '₦2M+' },
                 { icon: '👥', label: 'Mentees', value: '500+' },
                 { icon: '🌟', label: 'Impact', value: '100K+' },
               ].map((stat, idx) => (
@@ -205,8 +205,12 @@ export default function FoundationPage() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <div>
-                  <p className="text-accent font-semibold text-sm tracking-wide uppercase mb-2">Make an Impact</p>
-                  <h2 className="font-serif text-4xl font-bold text-foreground">Support Our Mission</h2>
+                  <p className="text-accent font-semibold text-sm tracking-wide uppercase mb-2">
+                    Make an Impact
+                  </p>
+                  <h2 className="font-serif text-4xl font-bold text-foreground">
+                    Support Our Mission
+                  </h2>
                 </div>
 
                 <p className="text-lg text-foreground/70 leading-relaxed">
@@ -217,24 +221,30 @@ export default function FoundationPage() {
                   <div className="flex gap-4">
                     <div className="text-2xl">🎓</div>
                     <div>
-                      <p className="font-semibold text-foreground">$5,000 Scholarship</p>
-                      <p className="text-sm text-foreground/70">Covers tuition for one student for one semester</p>
+                      <p className="font-semibold text-foreground">₦500,000 Scholarship</p>
+                      <p className="text-sm text-foreground/70">
+                        Covers tuition for one student for one semester
+                      </p>
                     </div>
                   </div>
 
                   <div className="flex gap-4">
                     <div className="text-2xl">🎯</div>
                     <div>
-                      <p className="font-semibold text-foreground">$10,000 Mentorship</p>
-                      <p className="text-sm text-foreground/70">Supports a full year of mentorship for one mentee</p>
+                      <p className="font-semibold text-foreground">₦1,000,000 Mentorship</p>
+                      <p className="text-sm text-foreground/70">
+                        Supports a full year of mentorship for one mentee
+                      </p>
                     </div>
                   </div>
 
                   <div className="flex gap-4">
                     <div className="text-2xl">🌟</div>
                     <div>
-                      <p className="font-semibold text-foreground">$25,000 Leadership Program</p>
-                      <p className="text-sm text-foreground/70">Enables comprehensive training for 5 emerging leaders</p>
+                      <p className="font-semibold text-foreground">₦25,000,000 Leadership Program</p>
+                      <p className="text-sm text-foreground/70">
+                        Enables comprehensive training for 5 emerging leaders
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -257,29 +267,6 @@ export default function FoundationPage() {
                   </ul>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* How We Use Funds */}
-        <section className="py-20 bg-muted/20">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="font-serif text-4xl font-bold text-foreground mb-4">How We Use Your Donations</h2>
-            </div>
-
-            <div className="grid md:grid-cols-4 gap-4 text-center">
-              {[
-                { percent: '60%', label: 'Scholarships & Grants' },
-                { percent: '20%', label: 'Program Development' },
-                { percent: '12%', label: 'Administration' },
-                { percent: '8%', label: 'Fundraising' },
-              ].map((item, idx) => (
-                <div key={idx} className="bg-card rounded-lg p-6 border border-border/50">
-                  <p className="text-4xl font-bold text-primary mb-2">{item.percent}</p>
-                  <p className="text-foreground/70 text-sm">{item.label}</p>
-                </div>
-              ))}
             </div>
           </div>
         </section>

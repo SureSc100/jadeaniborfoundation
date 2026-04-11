@@ -3,7 +3,14 @@
 import { useMemo, useRef, useState } from "react"
 import { Heart } from "lucide-react"
 
-const PRESETS = [25, 50, 100, 250, 500, 1000]
+const PRESETS = [5000, 10000, 20000, 50000, 80000, 100000]
+
+const formatNGN = (n: number) =>
+  new Intl.NumberFormat("en-NG", {
+    style: "currency",
+    currency: "NGN",
+    maximumFractionDigits: 0,
+  }).format(n)
 
 export default function DonationPicker() {
   const donateNowRef = useRef<HTMLButtonElement | null>(null)
@@ -21,6 +28,7 @@ export default function DonationPicker() {
     setSelectedAmount(amt)
     setCustomAmount("")
 
+
     // after selecting, scroll to the Donate Now button (helps on mobile)
     requestAnimationFrame(() => {
       donateNowRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })
@@ -36,7 +44,7 @@ export default function DonationPicker() {
     if (!finalAmount || finalAmount <= 0) return
 
     // connect Stripe/Paystack/etc later
-    alert(`Selected donation: $${finalAmount}`)
+    alert(`Selected donation: ${formatNGN(finalAmount)}`)
   }
 
   return (
@@ -62,14 +70,14 @@ export default function DonationPicker() {
               ].join(" ")}
               aria-pressed={isActive}
             >
-              ${amount}
+              {formatNGN(amount)}
             </button>
           )
         })}
 
         <input
           type="number"
-          placeholder="Custom Amount"
+          placeholder="Custom Amount (₦)"
           value={customAmount}
           onChange={onCustomChange}
           className="w-full py-3 px-4 border-2 border-input rounded-lg font-semibold text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary bg-background"
@@ -89,7 +97,7 @@ export default function DonationPicker() {
         ].join(" ")}
       >
         <Heart size={20} />
-        Donate Now{finalAmount ? ` ($${finalAmount})` : ""}
+        Donate Now{finalAmount ? ` (${formatNGN(finalAmount)})` : ""}
       </button>
 
       <p className="text-xs text-foreground/60 text-center">
