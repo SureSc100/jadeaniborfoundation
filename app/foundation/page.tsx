@@ -1,5 +1,6 @@
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
+import DonationPicker from "@/components/donation-picker"
 import Link from 'next/link'
 import { Heart, Users, BookOpen, Award, ArrowRight } from 'lucide-react'
 
@@ -244,34 +245,7 @@ export default function FoundationPage() {
               </div>
 
               <div className="space-y-6">
-                <div className="bg-card rounded-xl shadow-md border border-border/50 p-8 space-y-4">
-                  <h3 className="font-serif text-2xl font-bold text-foreground">Make Your Donation</h3>
-
-                  <div className="space-y-3">
-                    {[25, 50, 100, 250, 500, 1000].map((amount) => (
-                      <button
-                        key={amount}
-                        className="w-full py-3 px-4 border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary hover:text-primary-foreground transition-colors"
-                      >
-                        ${amount}
-                      </button>
-                    ))}
-                    <input
-                      type="number"
-                      placeholder="Custom Amount"
-                      className="w-full py-3 px-4 border-2 border-input rounded-lg font-semibold text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary bg-background"
-                    />
-                  </div>
-
-                  <button className="w-full py-3 px-4 bg-accent text-accent-foreground rounded-lg font-semibold hover:bg-accent/90 transition-colors flex items-center justify-center gap-2">
-                    <Heart size={20} />
-                    Donate Now
-                  </button>
-
-                  <p className="text-xs text-foreground/60 text-center">
-                    Secure donation processed via Stripe. Your information is protected.
-                  </p>
-                </div>
+                <DonationPicker />
 
                 <div className="bg-muted/30 rounded-xl p-6 space-y-2">
                   <p className="text-sm font-semibold text-foreground">Why Give?</p>
