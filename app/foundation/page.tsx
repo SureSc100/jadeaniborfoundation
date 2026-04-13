@@ -3,6 +3,7 @@ import { Footer } from '@/components/footer'
 import DonationPicker from "@/components/donation-picker"
 import Link from 'next/link'
 import { Heart, Users, BookOpen, Award, ArrowRight } from 'lucide-react'
+import ImpactCarousel from '@/components/impact-carousel'
 
 export const metadata = {
   title: 'Jade Anibor Foundation | Scholarships & Community Impact',
@@ -57,6 +58,8 @@ export default function FoundationPage() {
             </div>
           </div>
         </section>
+
+        <ImpactCarousel />
 
         {/* Programs Section */}
         <section className="py-20 bg-background">
