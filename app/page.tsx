@@ -207,20 +207,9 @@ export default function Home() {
 
                 <div className="space-y-4 text-foreground/70 leading-relaxed">
                   <p>
-                    With over two decades of experience in strategic business consulting and personal transformation, Jade Anibor has become a trusted voice in helping individuals and organizations unlock their full potential. Her unique approach combines practical business acumen with deep insights into human psychology and organizational behavior.
+                    Jade George Anibor is a Nigerian author, business consultant, and social entrepreneur with over 15 years of writing experience. She's published multiple books across genres like business, motivation, thrillers, poetry, and romance, including 'Twenty Ways I Thought I Died', 'The Better Version of a Woman', and 'A World Without Business Is No Business.
                   </p>
 
-                  <p>
-                    Jade&apos;s consulting firm has worked with hundreds of executives, entrepreneurs, and leaders across multiple industries, helping them navigate complex challenges and achieve breakthrough results. Her methodologies have been proven to increase organizational effectiveness, improve leadership capabilities, and drive sustainable growth.
-                  </p>
-
-                  <p>
-                    As an accomplished author, Jade has published multiple bestselling books that have influenced thousands of readers worldwide. Her written work focuses on practical strategies for success, personal empowerment, and organizational transformation. Each publication is grounded in real-world experience and backed by comprehensive research.
-                  </p>
-
-                  <p>
-                    Beyond consulting and writing, Jade is passionate about education and giving back to communities. Through the Jade Anibor Foundation, she provides scholarships, mentorship programs, and resources to emerging leaders and entrepreneurs who are committed to making a positive impact.
-                  </p>
                 </div>
 
                 <div className="pt-6">
