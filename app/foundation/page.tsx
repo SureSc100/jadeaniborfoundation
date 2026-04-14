@@ -1,16 +1,28 @@
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
-import DonationPicker from "@/components/donation-picker"
 import Link from 'next/link'
-import { Heart, Users, BookOpen, Award, ArrowRight } from 'lucide-react'
+import {
+  Heart,
+  ArrowRight,
+  Droplet,
+  PackageOpen,
+  BookOpenCheck,
+  HandHeart,
+} from 'lucide-react'
 import ImpactCarousel from '@/components/impact-carousel'
 
 export const metadata = {
-  title: 'Jade Anibor Foundation | Scholarships & Community Impact',
-  description: 'Support transformative education and community development through the Jade Anibor Foundation. Donate to scholarships and mentorship programs.',
+  title: 'Jade Anibor Foundation | Ending Period Poverty',
+  description:
+    'Jade Anibor Foundation (CAC Reg. No: 169471) is dedicated to addressing period poverty across Africa—one book at a time. Donate to support sanitary pad distribution and menstrual hygiene.',
 }
 
 export default function FoundationPage() {
+  const flutterwaveDonateUrl = 'https://flutterwave.com/donate/kc59f1zzf9kx'
+  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(
+    flutterwaveDonateUrl
+  )}`
+
   return (
     <>
       <Navbar />
@@ -19,104 +31,149 @@ export default function FoundationPage() {
         <section className="pt-32 pb-16 bg-linear-to-b from-primary/10 to-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="space-y-4 text-center mb-12">
-              <p className="text-accent font-semibold text-sm tracking-wide uppercase">Community Impact</p>
+              <p className="text-accent font-semibold text-sm tracking-wide uppercase">
+                Community Impact
+              </p>
+
               <h1 className="font-serif text-5xl sm:text-6xl font-bold text-foreground">
                 Jade Anibor Foundation
               </h1>
+
               <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
-                Investing in education, mentorship, and community development to empower the next generation of leaders and innovators.
+                Helping out with period poverty, one book at a time—supporting indigent women and
+                young girls across Africa with access to sanitary pads and proper menstrual hygiene.
               </p>
+
+              <p className="text-sm text-foreground/60">
+                Registered Nonprofit (CAC Reg. No: <span className="font-semibold">169471</span>) •
+                Since Nov 16, 2022
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
+                <Link
+                  href={flutterwaveDonateUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors"
+                >
+                  Donate Now
+                  <Heart size={20} />
+                </Link>
+
+                <a
+                  href="#what-we-do"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-3 border border-border text-foreground rounded-lg font-semibold hover:bg-muted/40 transition-colors"
+                >
+                  What We Do
+                  <ArrowRight size={18} />
+                </a>
+              </div>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 pt-8">
-              {[
-                { icon: '🎓', label: 'Scholarships', value: '₦2M+' },
-                { icon: '👥', label: 'Mentees', value: '500+' },
-                { icon: '🌟', label: 'Impact', value: '100K+' },
-              ].map((stat, idx) => (
-                <div key={idx} className="bg-card rounded-lg shadow-md border border-border/50 p-6 text-center">
-                  <div className="text-4xl mb-3">{stat.icon}</div>
-                  <p className="text-foreground/60 text-sm uppercase tracking-wide mb-2">{stat.label}</p>
-                  <p className="text-3xl font-bold text-primary">{stat.value}</p>
-                </div>
-              ))}
+            {/* REMOVED: Scholarships / Mentees / Impact stats containers */}
+          </div>
+        </section>
+
+        {/* Mission + Vision + About */}
+        <section className="py-20 text-slate-50 bg-linear-to-b from-[#050A18] via-[#070F22] to-[#050A18]">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="space-y-10">
+              <div className="space-y-3">
+                <h2 className="font-serif text-4xl font-bold">Our Mission</h2>
+                <p className="text-lg leading-relaxed text-slate-200">
+                  Helping out with period poverty, one book at a time—by channeling support and
+                  resources to indigent women and young girls who need access to sanitary pads and
+                  dignified menstrual care.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="font-serif text-3xl font-bold">Our Vision</h3>
+                <p className="text-lg leading-relaxed text-slate-200">
+                  Empowering young girls and indigent women of Africa with sanitary pads to maintain
+                  proper menstrual hygiene.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="font-serif text-3xl font-bold">About the Foundation</h3>
+                <p className="text-lg leading-relaxed text-slate-200">
+                  Jade Anibor Foundation (Registration Number: 169471) is a nonprofit organization
+                  registered with the Corporate Affairs Commission (CAC) since November 16, 2022.
+                  We’re dedicated to addressing period poverty among indigent women and girls in
+                  Africa. Through the sale of books on Amazon and Selar, a portion of proceeds is
+                  allocated to provide sanitary pads and support to those in need. With the help of
+                  generous friends and supporters, we’re working to make a difference in the lives
+                  of vulnerable women and girls.
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Mission Section */}
-        <section className="py-20 bg-primary text-primary-foreground">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="space-y-6">
-              <h2 className="font-serif text-4xl font-bold">Our Mission</h2>
-              <p className="text-lg leading-relaxed">
-                The Jade Anibor Foundation is dedicated to transforming lives and communities through education, mentorship, and strategic support. We believe that every individual has the potential to achieve extraordinary things when given the right tools, guidance, and opportunities.
-              </p>
-              <p className="text-lg leading-relaxed">
-                By providing scholarships, mentorship programs, and access to world-class resources, we&apos;re building a pipeline of future leaders, entrepreneurs, and changemakers who will drive positive transformation in their industries and communities.
-              </p>
-            </div>
-          </div>
-        </section>
-
+        {/* Keep Carousel (as requested) */}
         <ImpactCarousel />
 
-        {/* Programs Section */}
-        <section className="py-20 bg-background">
+        {/* What We Do */}
+        <section id="what-we-do" className="py-20 bg-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <p className="text-accent font-semibold text-sm tracking-wide uppercase mb-3">What We Do</p>
-              <h2 className="font-serif text-4xl font-bold text-foreground">Foundation Programs</h2>
+              <p className="text-accent font-semibold text-sm tracking-wide uppercase mb-3">
+                What We Do
+              </p>
+              <h2 className="font-serif text-4xl font-bold text-foreground">
+                How We Fight Period Poverty
+              </h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
               {[
                 {
-                  icon: Award,
-                  title: 'Educational Scholarships',
+                  icon: PackageOpen,
+                  title: 'Sanitary Pad Support & Distribution',
                   description:
-                    'Full and partial scholarships for deserving students pursuing higher education in business, leadership, and transformational studies.',
+                    'We provide sanitary pads to indigent women and young girls—helping them stay confident, hygienic, and supported.',
                   highlights: [
-                    'Full tuition scholarships',
-                    'Merit-based selection',
-                    'Mentorship included',
-                    'Career support',
+                    'Pad packs and essentials',
+                    'Targeted community outreaches',
+                    'Support for girls and women in need',
+                    'Dignity-focused distribution',
                   ],
                 },
                 {
-                  icon: Users,
-                  title: 'Mentorship Programs',
+                  icon: Droplet,
+                  title: 'Menstrual Hygiene Awareness',
                   description:
-                    'One-on-one mentorship with industry leaders, entrepreneurs, and experts who provide guidance, accountability, and strategic support.',
+                    'We promote safe, proper menstrual hygiene practices so beneficiaries can manage their periods with confidence and care.',
                   highlights: [
-                    'Executive mentoring',
-                    'Business coaching',
-                    'Career development',
-                    'Network access',
+                    'Practical hygiene guidance',
+                    'Community-centered conversations',
+                    'Reducing stigma through awareness',
+                    'Sustainable menstrual health habits',
                   ],
                 },
                 {
-                  icon: BookOpen,
-                  title: 'Leadership Development',
+                  icon: BookOpenCheck,
+                  title: 'One Book at a Time Giving Model',
                   description:
-                    'Comprehensive leadership training programs designed to develop the next generation of visionary leaders and change agents.',
+                    'A portion of book proceeds (Amazon and Selar) is allocated to fund sanitary pad support for those who need it most.',
                   highlights: [
-                    'Leadership workshops',
-                    'Executive training',
-                    'Skill development',
-                    'Certification programs',
+                    'Book-powered impact',
+                    'Sustained support model',
+                    'Clear mission-aligned giving',
+                    'Scalable outreach funding',
                   ],
                 },
                 {
-                  icon: Heart,
-                  title: 'Community Initiatives',
+                  icon: HandHeart,
+                  title: 'Friends, Supporters & Partnerships',
                   description:
-                    'Direct community support through grants, programs, and partnerships that address social challenges and create lasting impact.',
+                    'With the help of generous friends and supporters, we expand our reach and deepen the impact of every outreach.',
                   highlights: [
-                    'Community grants',
-                    'Social programs',
-                    'NGO partnerships',
-                    'Local development',
+                    'Donor-funded outreaches',
+                    'In-kind support opportunities',
+                    'Volunteer collaboration',
+                    'Transparent, mission-first impact',
                   ],
                 },
               ].map((program, idx) => {
@@ -131,7 +188,9 @@ export default function FoundationPage() {
                     </div>
 
                     <div className="space-y-3">
-                      <h3 className="font-serif text-2xl font-bold text-foreground">{program.title}</h3>
+                      <h3 className="font-serif text-2xl font-bold text-foreground">
+                        {program.title}
+                      </h3>
                       <p className="text-foreground/70 leading-relaxed">{program.description}</p>
                     </div>
 
@@ -150,57 +209,7 @@ export default function FoundationPage() {
           </div>
         </section>
 
-        {/* Impact Stories */}
-        <section className="py-20 bg-muted/20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <p className="text-accent font-semibold text-sm tracking-wide uppercase mb-3">Beneficiaries</p>
-              <h2 className="font-serif text-4xl font-bold text-foreground mb-4">
-                Lives Changed, Futures Transformed
-              </h2>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                {
-                  name: 'Sarah Chen',
-                  role: 'MBA Graduate & Startup Founder',
-                  story:
-                    'The Foundation&apos;s scholarship enabled me to pursue my MBA debt-free. The mentorship from Jade personally guided my journey to founding a successful tech startup that now employs 50 people.',
-                  image: '👩‍💼',
-                },
-                {
-                  name: 'Marcus Johnson',
-                  role: 'Executive Director, Non-profit',
-                  story:
-                    'As a mentee, I gained invaluable insights into leadership and strategy. I now lead a non-profit serving 10,000+ people annually, directly inspired by the principles I learned.',
-                  image: '👨‍💼',
-                },
-                {
-                  name: 'Priya Patel',
-                  role: 'Management Consultant',
-                  story:
-                    'The Foundation&apos;s leadership program transformed my career trajectory. I went from mid-level analyst to partner at a top consulting firm in just 5 years.',
-                  image: '👩‍💻',
-                },
-              ].map((story, idx) => (
-                <div
-                  key={idx}
-                  className="bg-card rounded-xl shadow-md border border-border/50 p-8 space-y-4 text-center hover:shadow-lg transition-all"
-                >
-                  <div className="text-6xl">{story.image}</div>
-                  <blockquote className="text-foreground/70 italic leading-relaxed">
-                    &quot;{story.story}&quot;
-                  </blockquote>
-                  <div className="pt-4 border-t border-border/50">
-                    <p className="font-semibold text-foreground">{story.name}</p>
-                    <p className="text-sm text-accent">{story.role}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* REMOVED: Beneficiaries section entirely */}
 
         {/* Donation Section */}
         <section className="py-20 bg-background">
@@ -217,56 +226,103 @@ export default function FoundationPage() {
                 </div>
 
                 <p className="text-lg text-foreground/70 leading-relaxed">
-                  Your donation directly impacts the lives of students, emerging leaders, and communities we serve. Every contribution, regardless of size, makes a meaningful difference.
+                  Your donation helps us provide sanitary pads and support to indigent women and
+                  young girls. Every contribution strengthens our outreaches and expands the number
+                  of lives we can reach.
                 </p>
 
+                {/* Updated “impact examples” (no education/mentorship) */}
                 <div className="space-y-3">
                   <div className="flex gap-4">
-                    <div className="text-2xl">🎓</div>
+                    <div className="text-2xl">🩷</div>
                     <div>
-                      <p className="font-semibold text-foreground">₦500,000 Scholarship</p>
+                      <p className="font-semibold text-foreground">Pads & Essentials</p>
                       <p className="text-sm text-foreground/70">
-                        Covers tuition for one student for one semester
+                        Helps provide sanitary pads and basic menstrual care items to beneficiaries.
                       </p>
                     </div>
                   </div>
 
                   <div className="flex gap-4">
-                    <div className="text-2xl">🎯</div>
+                    <div className="text-2xl">📦</div>
                     <div>
-                      <p className="font-semibold text-foreground">₦1,000,000 Mentorship</p>
+                      <p className="font-semibold text-foreground">Outreach Support</p>
                       <p className="text-sm text-foreground/70">
-                        Supports a full year of mentorship for one mentee
+                        Supports distribution logistics and reaching more communities.
                       </p>
                     </div>
                   </div>
 
                   <div className="flex gap-4">
-                    <div className="text-2xl">🌟</div>
+                    <div className="text-2xl">🤝</div>
                     <div>
-                      <p className="font-semibold text-foreground">₦25,000,000 Leadership Program</p>
+                      <p className="font-semibold text-foreground">Sustained Giving</p>
                       <p className="text-sm text-foreground/70">
-                        Enables comprehensive training for 5 emerging leaders
+                        Helps keep the “one book at a time” impact moving consistently.
                       </p>
                     </div>
                   </div>
                 </div>
 
                 <p className="text-sm text-foreground/60">
-                  The Jade Anibor Foundation is a 501(c)(3) nonprofit organization. All donations are tax-deductible.
+                  Jade Anibor Foundation is registered with the CAC (Reg. No: 169471).
                 </p>
+
+                <div className="pt-2">
+                  <Link
+                    href={flutterwaveDonateUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors"
+                  >
+                    Donate via Flutterwave
+                    <ArrowRight size={18} />
+                  </Link>
+                </div>
               </div>
 
               <div className="space-y-6">
-                <DonationPicker />
+                {/* QR + quick donate */}
+                <div className="bg-muted/30 rounded-xl p-6 border border-border/50">
+                  <div className="flex flex-col md:flex-row gap-6 items-center md:items-start">
+                    <div className="text-center md:text-left space-y-2">
+                      <p className="text-sm font-semibold text-foreground">Prefer to scan?</p>
+                      <p className="text-sm text-foreground/70">
+                        Scan this QR code to donate through Flutterwave.
+                      </p>
+
+                      <Link
+                        href={flutterwaveDonateUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+                      >
+                        Open donation link
+                        <ArrowRight size={16} />
+                      </Link>
+                    </div>
+
+                    <div className="shrink-0">
+                      {/* If you have an official QR image, replace this <img> with next/image and a /public file */}
+                      <img
+                        src={qrUrl}
+                        alt="Flutterwave donation QR code"
+                        className="rounded-lg border border-border bg-white p-2"
+                        width={220}
+                        height={220}
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </div>
 
                 <div className="bg-muted/30 rounded-xl p-6 space-y-2">
                   <p className="text-sm font-semibold text-foreground">Why Give?</p>
                   <ul className="space-y-2 text-sm text-foreground/70">
-                    <li>✓ Tax-deductible donations</li>
-                    <li>✓ 100% impact on programs</li>
-                    <li>✓ Annual impact reports</li>
-                    <li>✓ Transparent financials</li>
+                    <li>✓ Direct support for sanitary pad access</li>
+                    <li>✓ Helps expand outreaches to more communities</li>
+                    <li>✓ Sustains ongoing impact with supporters</li>
+                    <li>✓ Mission-first, dignity-centered giving</li>
                   </ul>
                 </div>
               </div>
@@ -278,22 +334,31 @@ export default function FoundationPage() {
         <section className="py-20 bg-accent">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
             <div className="space-y-4">
-              <h2 className="font-serif text-4xl sm:text-5xl font-bold text-accent-foreground">Join Our Movement</h2>
+              <h2 className="font-serif text-4xl sm:text-5xl font-bold text-accent-foreground">
+                Join Our Movement
+              </h2>
               <p className="text-lg text-accent-foreground/80">
-                Every contribution creates lasting change. Together, we&apos;re building a future of unlimited potential.
+                Together, we can restore dignity and improve menstrual hygiene—one outreach, one
+                donation, and one book at a time.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-              <button className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-accent-foreground text-accent rounded-lg font-semibold hover:bg-accent-foreground/90 transition-colors">
+              <Link
+                href={flutterwaveDonateUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-accent-foreground text-accent rounded-lg font-semibold hover:bg-accent-foreground/90 transition-colors"
+              >
                 Donate Now
                 <Heart size={20} />
-              </button>
+              </Link>
+
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center gap-2 px-8 py-3 border-2 border-accent-foreground text-accent-foreground rounded-lg font-semibold hover:bg-accent-foreground/10 transition-colors"
               >
-                Learn More
+                Partner With Us
               </Link>
             </div>
           </div>
