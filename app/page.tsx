@@ -27,7 +27,7 @@ export default function Home() {
                     Ending Period Poverty, Restoring Dignity
                   </h1>
                   <p className="text-lg text-gray-200 leading-relaxed">
-                    Millions of girls and women face period poverty every day, lacking access to basic menstrual hygiene. Through our books, outreach programs, and community initiatives, we provide sanitary support, education, and hope — empowering lives and restoring dignity across Africa.
+                    Millions of girls and women face period poverty every day, lacking access to basic menstrual hygiene. Through our books, outreach programs, and community initiatives, we provide sanitary support — empowering lives and restoring dignity across Africa.
                   </p>
                 </div>
 
@@ -67,17 +67,16 @@ export default function Home() {
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
-                  title: 'The Art of Strategic Transformation',
-                  description: 'Learn the principles of transforming vision into reality through strategic planning and decisive action.',
+                  title: 'The Giant in my Bed',
                   image: 'giants.jpeg',
                 },
                 {
-                  title: 'Building Business Excellence',
+                  title: 'Pathetic Couples',
                   description: 'Master the fundamentals of creating sustainable, profitable businesses with lasting impact.',
                   image: 'pat.jpeg',
                 },
                 {
-                  title: 'The Path to Personal Power',
+                  title: 'Lies were Told',
                   description: 'Unlock your inner potential and cultivate the mindset needed for extraordinary success.',
                   image: 'lies.jpeg',
                 },
