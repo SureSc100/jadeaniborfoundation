@@ -32,7 +32,7 @@ export function Navbar() {
   const mobileBase =
     'block px-4 py-2 text-foreground/80 hover:text-primary hover:bg-muted rounded-lg transition-colors text-sm font-medium'
   const mobileActive =
-    'text-green-600 font-semibold bg-muted'
+    'text-orange-600 font-semibold bg-muted'
 
   return (
     <nav className="sticky top-0 z-50 bg-background border-b border-border/50 backdrop-blur-sm">
@@ -41,7 +41,7 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 h-16">
             <img
-              src="/Jalogo.png"
+              src="/logod.png"
               alt="Jade Anibor Foundation"
               className="h-20 w-auto"
             />
