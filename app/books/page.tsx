@@ -1,123 +1,58 @@
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import Link from 'next/link'
-import { Star, ShoppingCart, ArrowRight } from 'lucide-react'
+import Image from 'next/image'
+import { ArrowRight, Phone, MessageCircle } from 'lucide-react'
 
 export const metadata = {
   title: 'Books | Jade Anibor - Educational Resources & Bestsellers',
-  description: 'Explore Jade Anibor&apos;s bestselling books on business, personal development, and transformation. Discover practical insights for success.',
+  description: "Explore Jade Anibor's books and shop via Amazon or Selar.",
 }
 
+// Store links (as provided)
+const AMAZON_STORE_URL =
+  'https://www.amazon.com/stores/JADE-GEORGE-ANIBOR/author/B0DH32BTDN?ref=ap_rdr&shoppingPortalEnabled=true'
+
+const SELAR_STORE_URL = 'https://selar.com/m/jade-george-anibor1'
+
+// Autographed ebook details
+const WHATSAPP_NUMBER_INTL = '2348133337114'
+const BANK_NAME = 'Zenith Bank'
+const ACCOUNT_NUMBER = '1221037259'
+const ACCOUNT_NAME = 'Jade Anibor Foundation'
+
+// where your book cover images live
+const BOOKS_IMG_PREFIX = '/books' // => /public/books
+const BOOKS_IMG_EXT = 'jpeg' // change to 'jpg' if your files are .jpg
+
 const books = [
-  {
-    id: 1,
-    title: 'The Art of Strategic Transformation',
-    author: 'Jade Anibor',
-    year: 2023,
-    rating: 4.9,
-    reviews: 1250,
-    price: 24.99,
-    image: 'giants.jpeg',
-    description:
-      'Learn the principles of transforming vision into reality through strategic planning and decisive action. This comprehensive guide provides actionable frameworks used by Fortune 500 companies.',
-    highlights: [
-      'Strategic Planning Frameworks',
-      'Change Management Strategies',
-      'Leadership Development',
-      'Organizational Transformation',
-    ],
-  },
-  {
-    id: 2,
-    title: 'Building Business Excellence',
-    author: 'Jade Anibor',
-    year: 2022,
-    rating: 4.8,
-    reviews: 980,
-    price: 22.99,
-    image: 'lies.jpeg',
-    description:
-      'Master the fundamentals of creating sustainable, profitable businesses with lasting impact. Discover proven strategies for scaling, profitability, and building exceptional teams.',
-    highlights: [
-      'Business Development',
-      'Team Building',
-      'Profit Optimization',
-      'Market Strategy',
-    ],
-  },
-  {
-    id: 3,
-    title: 'The Path to Personal Power',
-    author: 'Jade Anibor',
-    year: 2021,
-    rating: 4.9,
-    reviews: 1450,
-    price: 19.99,
-    image: 'pat.jpeg',
-    description:
-      'Unlock your inner potential and cultivate the mindset needed for extraordinary success. A transformative journey through personal empowerment and achievement.',
-    highlights: [
-      'Mindset Development',
-      'Goal Setting',
-      'Personal Mastery',
-      'Success Psychology',
-    ],
-  },
-  {
-    id: 4,
-    title: 'Leadership in the Modern Age',
-    author: 'Jade Anibor',
-    year: 2023,
-    rating: 4.7,
-    reviews: 820,
-    price: 26.99,
-    image: 'manage.jpeg',
-    description:
-      'Navigate modern leadership challenges with proven strategies. Learn how to inspire, motivate, and lead diverse teams in today&apos;s dynamic business environment.',
-    highlights: [
-      'Emotional Intelligence',
-      'Team Dynamics',
-      'Crisis Management',
-      'Organizational Culture',
-    ],
-  },
-  {
-    id: 5,
-    title: 'Innovation & Disruptive Thinking',
-    author: 'Jade Anibor',
-    year: 2022,
-    rating: 4.6,
-    reviews: 650,
-    price: 23.99,
-    image: 'paint.jpeg',
-    description:
-      'Discover how to foster innovation and think disruptively. Essential strategies for staying ahead of market trends and creating breakthrough solutions.',
-    highlights: [
-      'Creative Problem Solving',
-      'Market Innovation',
-      'Future Thinking',
-      'Competitive Advantage',
-    ],
-  },
-  {
-    id: 6,
-    title: 'The Entrepreneur&apos;s Handbook',
-    author: 'Jade Anibor',
-    year: 2021,
-    rating: 4.8,
-    reviews: 1100,
-    price: 21.99,
-    image: 'robot.jpeg',
-    description:
-      'A practical guide for aspiring and established entrepreneurs. From startup to scale-up, master the essential skills needed to build a thriving business.',
-    highlights: [
-      'Startup Strategies',
-      'Funding & Finance',
-      'Growth Hacking',
-      'Business Scaling',
-    ],
-  },
-]
+  { id: 1, title: 'THE GIANT IN MY BED' },
+  { id: 2, title: 'Beyond the Net Worth' },
+  { id: 3, title: 'GET ANOTHER BOYFRIEND' },
+  { id: 4, title: 'Take a Leap in Business' },
+  { id: 5, title: 'Billionaire Husband' },
+  { id: 6, title: 'Love in Verse' },
+  { id: 7, title: 'A World Without Business is No Business' },
+  { id: 8, title: 'THE INTRICACIES OF THE BUSINESS WORLD' },
+  { id: 9, title: 'Fascinate Your Activities With Project Management' },
+  { id: 10, title: 'MY UNCOMPREHENDING WIFE' },
+  { id: 11, title: 'TWENTY WAYS I THOUGHT I DIED' },
+  { id: 12, title: 'DO NOT ASK ME TO LOVE YOU IF YOU WILL NOT CHANGE MY NAME' },
+  { id: 13, title: 'SCARED' },
+  { id: 14, title: 'PATHETIC COUPLE' },
+  { id: 15, title: 'SEVEN LIES YOU WERE TOLD' },
+  { id: 16, title: 'WHAT DO YOU EXPECT' },
+  { id: 17, title: 'PARADISE STREET' },
+  { id: 18, title: 'PAINT MY HEART' },
+  { id: 19, title: 'FIVE COMPETITIVE MANAGERIAL SKILLS' },
+  { id: 20, title: 'THE BETTER VERSION OF A WOMAN' },
+  { id: 21, title: 'A LONG RIDE' },
+  { id: 22, title: 'THE CROSS BORDERS OF INFLATION WITHIN AFRICA' },
+  { id: 23, title: 'How to Begin the year' },
+].map((b) => ({
+  ...b,
+  image: `${BOOKS_IMG_PREFIX}/${b.id}.${BOOKS_IMG_EXT}`,
+}))
 
 export default function BooksPage() {
   return (
@@ -133,7 +68,7 @@ export default function BooksPage() {
                 Transformative Books by Jade Anibor
               </h1>
               <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
-                Discover practical insights and proven strategies for personal development, business excellence, and organizational transformation.
+                Buy from either Amazon or Selar.
               </p>
             </div>
           </div>
@@ -146,65 +81,53 @@ export default function BooksPage() {
               {books.map((book) => (
                 <div
                   key={book.id}
-                  className="bg-card rounded-xl shadow-md border border-border/50 overflow-hidden hover:shadow-xl hover:border-primary/30 transition-all duration-300 flex flex-col"
+                  className="group bg-card rounded-xl shadow-md border border-border/50 overflow-hidden
+                             hover:shadow-xl hover:border-primary/30 transition-all duration-300 flex flex-col"
                 >
                   {/* Book Cover */}
                   <div className="border-b border-border/40 bg-linear-to-b from-muted/30 to-background p-5">
-                    {/* frame */}
                     <div className="mx-auto w-full max-w-[280px] rounded-2xl bg-linear-to-br from-primary/25 to-accent/25 p-px shadow-xl">
                       <div className="overflow-hidden rounded-2xl bg-white">
                         <img
                           src={book.image}
                           alt={book.title}
-                          className="aspect-3/4 w-full object-cover object-center scale-[1.08] transition-transform duration-500 group-hover:scale-[1.12]"
+                          className="aspect-3/4 w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.04]"
+                          loading="lazy"
                         />
                       </div>
                     </div>
                   </div>
 
-                  {/* Book Details */}
-                  <div className="p-6 flex flex-col grow">
-                    <h3 className="font-serif text-xl font-bold text-foreground mb-2">{book.title}</h3>
+                  {/* Title + Buy Buttons */}
+                  <div className="p-6 flex flex-col gap-4">
+                    <h3 className="font-serif text-xl font-bold text-foreground">{book.title}</h3>
 
-                    <div className="flex items-center gap-2 mb-4">
-                      <div className="flex items-center gap-1">
-                        {[...Array(5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            size={16}
-                            className={i < Math.floor(book.rating) ? 'fill-accent text-accent' : 'text-muted'}
-                          />
-                        ))}
+                    <div className="space-y-3">
+                      <p className="text-xs text-foreground/60 font-semibold tracking-wide uppercase">
+                        Buy from:
+                      </p>
+
+                      <div className="grid grid-cols-2 gap-3">
+                        <Link
+                          href={AMAZON_STORE_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-semibold
+                                     bg-[#FF9900] text-black hover:bg-[#ff9900]/90 transition-colors"
+                        >
+                          Amazon
+                        </Link>
+
+                        <Link
+                          href={SELAR_STORE_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-semibold
+                                     bg-emerald-600 text-white hover:bg-emerald-600/90 transition-colors"
+                        >
+                          Selar
+                        </Link>
                       </div>
-                      <span className="text-sm text-foreground/60">
-                        {book.rating} ({book.reviews} reviews)
-                      </span>
-                    </div>
-
-                    <p className="text-foreground/70 text-sm mb-4 grow">{book.description}</p>
-
-                    <div className="space-y-3 mb-4">
-                      <p className="text-xs text-foreground/50 font-semibold tracking-wide uppercase">Key Topics</p>
-                      <div className="flex flex-wrap gap-2">
-                        {book.highlights.map((highlight, idx) => (
-                          <span
-                            key={idx}
-                            className="text-xs bg-primary/10 text-primary px-3 py-1 rounded-full"
-                          >
-                            {highlight}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="flex items-center justify-between pt-4 border-t border-border/50">
-                      <div>
-                        <p className="text-2xl font-bold text-primary">${book.price}</p>
-                        <p className="text-xs text-foreground/50">{book.year}</p>
-                      </div>
-                      <button className="flex items-center justify-center gap-2 px-4 py-2 bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition-colors">
-                        <ShoppingCart size={18} />
-                      </button>
                     </div>
                   </div>
                 </div>
@@ -213,54 +136,14 @@ export default function BooksPage() {
           </div>
         </section>
 
-        {/* Featured Quote */}
-        <section className="py-20 bg-primary text-primary-foreground">
+        {/* Featured Quote (gray bg, black text) */}
+        <section className="py-20 bg-muted/40 text-foreground">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-            <p className="text-3xl sm:text-4xl font-serif italic">
-              "Books are not just repositories of knowledge—they are catalysts for transformation. Every page is an opportunity to evolve."
+            <p className="text-3xl sm:text-4xl font-serif italic text-foreground">
+              "Books are not just repositories of knowledge—they are catalysts for transformation.
+              Every page is an opportunity to evolve."
             </p>
-            <p className="text-lg text-primary-foreground/80">— Jade Anibor</p>
-          </div>
-        </section>
-
-        {/* Resources Section */}
-        <section className="py-20 bg-background">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="font-serif text-4xl font-bold text-foreground mb-4">Bonus Resources</h2>
-              <p className="text-lg text-foreground/70">Get additional materials with your book purchase</p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                {
-                  title: 'Workbooks & Worksheets',
-                  description:
-                    'Practical exercises and worksheets to help you apply the concepts from each book to your own life and business.',
-                  icon: '📋',
-                },
-                {
-                  title: 'Video Training Series',
-                  description:
-                    'Exclusive video modules featuring Jade walking through key concepts and providing additional insights.',
-                  icon: '🎥',
-                },
-                {
-                  title: 'Community Access',
-                  description: 'Join a community of readers and transform together. Share insights, ask questions, and grow.',
-                  icon: '👫',
-                },
-              ].map((resource, idx) => (
-                <div
-                  key={idx}
-                  className="bg-card rounded-xl shadow-md border border-border/50 p-8 text-center space-y-4 hover:shadow-lg hover:border-primary/30 transition-all"
-                >
-                  <div className="text-5xl">{resource.icon}</div>
-                  <h3 className="font-serif text-xl font-bold text-foreground">{resource.title}</h3>
-                  <p className="text-foreground/70">{resource.description}</p>
-                </div>
-              ))}
-            </div>
+            <p className="text-lg text-foreground/70">— Jade Anibor</p>
           </div>
         </section>
 
@@ -268,23 +151,103 @@ export default function BooksPage() {
         <section className="py-20 bg-accent">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
             <div className="space-y-4">
-              <h2 className="font-serif text-4xl sm:text-5xl font-bold text-accent-foreground">Start Your Reading Journey</h2>
+              <h2 className="font-serif text-4xl sm:text-5xl font-bold text-accent-foreground">
+                Start Your Reading Journey
+              </h2>
               <p className="text-lg text-accent-foreground/80">
                 Order your copy today and unlock the insights that have transformed thousands of lives.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-              <button className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-accent-foreground text-accent rounded-lg font-semibold hover:bg-accent-foreground/90 transition-colors">
-                Shop All Books
-                <ArrowRight size={20} />
-              </button>
               <Link
-                href="/contact"
+                href={AMAZON_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-accent-foreground text-accent rounded-lg font-semibold hover:bg-accent-foreground/90 transition-colors"
+              >
+                Shop All Books on Amazon
+                <ArrowRight size={20} />
+              </Link>
+
+              <Link
+                href={SELAR_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-8 py-3 border-2 border-accent-foreground text-accent-foreground rounded-lg font-semibold hover:bg-accent-foreground/10 transition-colors"
               >
-                Request a Quote
+                Shop All Books on Selar
+                <ArrowRight size={20} />
               </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Autographed eBooks section (before Footer) */}
+        <section className="py-20 bg-background">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-10 items-center">
+              <div className="relative w-full overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm">
+                <div className="relative aspect-4/5 sm:aspect-16/10 lg:aspect-4/5 w-full">
+                  <Image
+                    src="auto.jpeg"
+                    alt="Autographed eBooks flyer"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-5">
+                <div>
+                  <p className="text-accent font-semibold text-sm tracking-wide uppercase mb-2">
+                    Special Offer
+                  </p>
+                  <h2 className="font-serif text-4xl font-bold text-foreground">
+                    Hello dear readers!
+                  </h2>
+                </div>
+
+                <p className="text-foreground/80 leading-relaxed">
+                  Get autographed ebooks at the original price! DM{' '}
+                  <span className="font-semibold text-foreground">+2348133337114</span> with your email
+                  address.
+                </p>
+
+                <div className="rounded-xl border border-border/60 bg-muted/40 p-5 space-y-2">
+                  <p className="text-sm text-foreground/80">
+                    <span className="font-semibold text-foreground">Pay to:</span> {BANK_NAME}
+                  </p>
+                  <p className="text-sm text-foreground/80">
+                    <span className="font-semibold text-foreground">Account number:</span> {ACCOUNT_NUMBER}
+                  </p>
+                  <p className="text-sm text-foreground/80">
+                    <span className="font-semibold text-foreground">Account name:</span> {ACCOUNT_NAME}
+                  </p>
+                  <p className="text-sm text-foreground/80">Forward proof of payment. Thanks!</p>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Link
+                    href={`tel:+${WHATSAPP_NUMBER_INTL}`}
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-border/60 bg-background hover:bg-muted transition-colors font-semibold"
+                  >
+                    <Phone size={18} />
+                    Call
+                  </Link>
+
+                  <Link
+                    href={`https://wa.me/${WHATSAPP_NUMBER_INTL}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-emerald-600 text-white hover:bg-emerald-600/90 transition-colors font-semibold"
+                  >
+                    <MessageCircle size={18} />
+                    WhatsApp DM
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </section>
