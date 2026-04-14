@@ -24,7 +24,7 @@ export default function Home() {
                 <div className="space-y-4">
                   <p className="text-orange-400 font-semibold text-sm tracking-wide uppercase">WELCOME TO JADE ANIBOR FOUNDATION</p>
                   <h1 className="font-serif text-5xl sm:text-6xl font-bold text-white leading-tight">
-                    Ending Period Poverty, Restoring Dignity
+                    Alleviating Period Poverty and Community Impact
                   </h1>
                   <p className="text-lg text-gray-200 leading-relaxed">
                     Millions of girls and women face period poverty every day, lacking access to basic menstrual hygiene. Through our books, outreach programs, and community initiatives, we provide sanitary support — empowering lives and restoring dignity across Africa.
@@ -185,14 +185,14 @@ export default function Home() {
             <div className="grid lg:grid-cols-5 gap-12 items-start">
               <div className="lg:col-span-2">
                 <div className="sticky top-24 bg-card rounded-xl shadow-md border border-border/50 p-8 text-center space-y-4">
-                  <div className="w-32 h-32 mx-auto rounded-full overflow-hidden 
+                  <div className="w-32 h-32 mx-auto  
                 ring-4 ring-white 
                 shadow-[0_0_30px_rgba(34,197,94,0.25)] 
                 transition duration-300 hover:scale-105">
                     <img
-                      src="ceo.png"
-                      alt="Jade Anibor"
-                      className="w-full h-full object-cover"
+                      src="logod.png"
+                      alt="Jade Anibor Foundation"
+                      className="w-full h-full "
                     />
                   </div>
 
@@ -202,25 +202,16 @@ export default function Home() {
               <div className="lg:col-span-3 space-y-6">
                 <div>
                   <p className="text-sm text-accent font-semibold tracking-wide uppercase mb-2">About</p>
-                  <h2 className="font-serif text-4xl font-bold text-foreground mb-6">Jade&apos;s Journey</h2>
+                  <h2 className="font-serif text-4xl font-bold text-foreground mb-6">Jade Anibor Foundation</h2>
                 </div>
 
                 <div className="space-y-4 text-foreground/70 leading-relaxed">
                   <p>
-                    Jade George Anibor is a Nigerian author, business consultant, and social entrepreneur with over 15 years of writing experience. She's published multiple books across genres like business, motivation, thrillers, poetry, and romance, including 'Twenty Ways I Thought I Died', 'The Better Version of a Woman', and 'A World Without Business Is No Business.
+                    Jade Anibor Foundation (Registration Number: 169471) is a nonprofit organization registered with the Corporate Affairs Commission (CAC) since November 16, 2022. We're dedicated to addressing period poverty among indigent women and girls in Africa. Through the sale of books on Amazon and Selar, a portion of proceeds is allocated to provide sanitary pads and support to those in need. With the help of generous friends and supporters, we're working to make a difference in the lives of vulnerable women and girls.
                   </p>
 
                 </div>
 
-                <div className="pt-6">
-                  <Link
-                    href="/about"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors"
-                  >
-                    Read Full Bio
-                    <ArrowRight size={20} />
-                  </Link>
-                </div>
               </div>
             </div>
           </div>
