@@ -149,7 +149,7 @@ export default function ConsultingPage() {
                   href={`mailto:${CONSULTING_EMAIL}`}
                   className="inline-flex w-full sm:w-auto items-center justify-center gap-2
                              rounded-xl px-6 py-3 text-base font-semibold
-                             bg-emerald-700 text-white hover:bg-emerald-800 transition-colors shadow-sm"
+                             bg-green-800 text-white hover:bg-yellow-500 transition-colors shadow-sm"
                 >
                   <Mail size={18} />
                   <span className="break-all sm:break-normal">{CONSULTING_EMAIL}</span>
@@ -159,17 +159,13 @@ export default function ConsultingPage() {
                   href={`tel:${CONSULTING_PHONE}`}
                   className="inline-flex w-full sm:w-auto items-center justify-center gap-2
                              rounded-xl px-6 py-3 text-base font-semibold
-                             bg-emerald-700 text-white hover:bg-emerald-800 transition-colors shadow-sm"
+                             bg-green-800 text-white hover:bg-yellow-500 transition-colors shadow-sm"
                 >
                   <Phone size={18} />
                   {CONSULTING_PHONE}
                 </Link>
               </div>
 
-              {/* Optional line (if you want the exact text she gave)
-              <p className="text-sm text-foreground/60">
-                Consultancy email: {CONSULTING_EMAIL} | Consultancy: {CONSULTING_PHONE}
-              </p> */}
             </div>
           </div>
         </section>
