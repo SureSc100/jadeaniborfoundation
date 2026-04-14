@@ -102,7 +102,7 @@ export default function ImpactCarousel() {
           >
             {slides.map((s, i) => (
               <div key={i} className="relative min-w-full">
-                <div className="relative aspect-[16/9] w-full">
+                <div className="relative w-full h-[70vh] sm:h-[520px] lg:h-[580px]">
                   <Image
                     src={s.image}
                     alt={s.title}
