@@ -72,12 +72,10 @@ export default function Home() {
                 },
                 {
                   title: 'Pathetic Couples',
-                  description: 'Master the fundamentals of creating sustainable, profitable businesses with lasting impact.',
                   image: 'pat.jpeg',
                 },
                 {
                   title: 'Lies were Told',
-                  description: 'Unlock your inner potential and cultivate the mindset needed for extraordinary success.',
                   image: 'lies.jpeg',
                 },
               ].map((book, idx) => (
@@ -102,7 +100,6 @@ export default function Home() {
                     <h3 className="font-serif text-lg font-bold text-foreground group-hover:text-primary transition-colors">
                       {book.title}
                     </h3>
-                    <p className="text-foreground/70 text-sm leading-relaxed">{book.description}</p>
                     <div className="flex items-center gap-2 text-accent font-semibold text-sm pt-4">
                       Learn More <ArrowRight size={16} />
                     </div>
