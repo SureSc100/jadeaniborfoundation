@@ -1,12 +1,29 @@
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import Link from 'next/link'
-import { CheckCircle, ArrowRight, Briefcase, TrendingUp, Users, Target } from 'lucide-react'
+import Image from 'next/image'
+import {
+  CheckCircle,
+  ArrowRight,
+  Briefcase,
+  TrendingUp,
+  Users,
+  Target,
+  Mail,
+  Phone,
+} from 'lucide-react'
 
 export const metadata = {
   title: 'Business Consulting | Jade Anibor - Strategic Solutions',
-  description: 'Transform your business with strategic consulting from Jade Anibor. Expert guidance on growth, leadership, and organizational excellence.',
+  description:
+    'Transform your business with strategic consulting from Jade Anibor. Expert guidance on growth, leadership, and organizational excellence.',
 }
+
+const CONSULTING_EMAIL = 'jfatrainingtools@gmail.com'
+const CONSULTING_PHONE = '+2348057183461'
+
+// Update if your file name differs (png recommended since background is removed)
+const CONSULTING_LOGO_SRC = '/jfa-logo.png'
 
 const services = [
   {
@@ -52,7 +69,8 @@ const services = [
     id: 4,
     icon: Briefcase,
     title: 'Organizational Transformation',
-    description: 'Modernize your operations, improve efficiency, and create a culture of continuous improvement.',
+    description:
+      'Modernize your operations, improve efficiency, and create a culture of continuous improvement.',
     features: [
       'Change Management',
       'Process Optimization',
@@ -70,7 +88,7 @@ const caseStudies = [
     challenge: 'Rapid scaling creating organizational chaos',
     result: '150% revenue growth with 40% improved efficiency',
     quote:
-      'Jade&apos;s strategic guidance transformed our chaotic growth into a well-oiled machine. We went from $5M to $12.5M revenue in 18 months.',
+      "Jade's strategic guidance transformed our chaotic growth into a well-oiled machine. We went from $5M to $12.5M revenue in 18 months.",
   },
   {
     id: 2,
@@ -100,14 +118,54 @@ export default function ConsultingPage() {
         {/* Hero Section */}
         <section className="pt-32 pb-16 bg-gradient-to-b from-muted/40 to-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="space-y-4 text-center mb-12">
-              <p className="text-accent font-semibold text-sm tracking-wide uppercase">Services</p>
+            <div className="space-y-6 text-center mb-12">
+
+              {/* JFA Logo (bigger + responsive) */}
+              <div className="flex justify-center">
+                <div className="relative w-[320px] sm:w-[520px] lg:w-[620px] h-[130px] sm:h-[170px] lg:h-[200px]">
+                  <Image
+                    src={CONSULTING_LOGO_SRC}
+                    alt="JFA Training Tools Limited"
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 640px) 320px, (max-width: 1024px) 520px, 620px"
+                    priority
+                  />
+                </div>
+              </div>
+
               <h1 className="font-serif text-5xl sm:text-6xl font-bold text-foreground">
                 Strategic Business Consulting
               </h1>
+
               <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
-                Transform your business, develop your leadership, and achieve extraordinary growth with strategic consulting tailored to your unique needs.
+                Transform your business, develop your leadership, and achieve extraordinary growth
+                with strategic consulting tailored to your unique needs.
               </p>
+
+              {/* Consulting Contacts (bigger green rectangles, mobile friendly) */}
+              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4">
+                <Link
+                  href={`mailto:${CONSULTING_EMAIL}`}
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2
+                             rounded-xl px-6 py-3 text-base font-semibold
+                             bg-green-800 text-white hover:bg-yellow-500 transition-colors shadow-sm"
+                >
+                  <Mail size={18} />
+                  <span className="break-all sm:break-normal">{CONSULTING_EMAIL}</span>
+                </Link>
+
+                <Link
+                  href={`tel:${CONSULTING_PHONE}`}
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2
+                             rounded-xl px-6 py-3 text-base font-semibold
+                             bg-green-800 text-white hover:bg-yellow-500 transition-colors shadow-sm"
+                >
+                  <Phone size={18} />
+                  {CONSULTING_PHONE}
+                </Link>
+              </div>
+
             </div>
           </div>
         </section>
@@ -128,14 +186,21 @@ export default function ConsultingPage() {
                     </div>
 
                     <div className="space-y-3">
-                      <h3 className="font-serif text-2xl font-bold text-foreground">{service.title}</h3>
-                      <p className="text-foreground/70 leading-relaxed">{service.description}</p>
+                      <h3 className="font-serif text-2xl font-bold text-foreground">
+                        {service.title}
+                      </h3>
+                      <p className="text-foreground/70 leading-relaxed">
+                        {service.description}
+                      </p>
                     </div>
 
                     <div className="space-y-2 pt-4 border-t border-border/50">
                       {service.features.map((feature, idx) => (
                         <div key={idx} className="flex items-start gap-3">
-                          <CheckCircle className="text-primary mt-0.5 flex-shrink-0" size={20} />
+                          <CheckCircle
+                            className="text-primary mt-0.5 flex-shrink-0"
+                            size={20}
+                          />
                           <span className="text-foreground/80">{feature}</span>
                         </div>
                       ))}
@@ -151,7 +216,9 @@ export default function ConsultingPage() {
         <section className="py-20 bg-muted/20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <p className="text-accent font-semibold text-sm tracking-wide uppercase mb-3">Our Approach</p>
+              <p className="text-accent font-semibold text-sm tracking-wide uppercase mb-3">
+                Our Approach
+              </p>
               <h2 className="font-serif text-4xl font-bold text-foreground">
                 A Proven Consulting Process
               </h2>
@@ -162,22 +229,26 @@ export default function ConsultingPage() {
                 {
                   step: 1,
                   title: 'Discovery',
-                  description: 'We conduct in-depth interviews, assessments, and analysis to understand your business, challenges, and goals.',
+                  description:
+                    'We conduct in-depth interviews, assessments, and analysis to understand your business, challenges, and goals.',
                 },
                 {
                   step: 2,
                   title: 'Strategy',
-                  description: 'We develop comprehensive strategies, frameworks, and roadmaps tailored to your specific needs and opportunities.',
+                  description:
+                    'We develop comprehensive strategies, frameworks, and roadmaps tailored to your specific needs and opportunities.',
                 },
                 {
                   step: 3,
                   title: 'Implementation',
-                  description: 'We guide you through implementation, providing training, coaching, and ongoing support for your teams.',
+                  description:
+                    'We guide you through implementation, providing training, coaching, and ongoing support for your teams.',
                 },
                 {
                   step: 4,
                   title: 'Optimization',
-                  description: 'We monitor progress, measure results, and continuously optimize strategies to ensure sustainable success.',
+                  description:
+                    'We monitor progress, measure results, and continuously optimize strategies to ensure sustainable success.',
                 },
               ].map((phase, idx) => (
                 <div key={idx} className="relative">
@@ -185,9 +256,12 @@ export default function ConsultingPage() {
                     <div className="w-12 h-12 bg-accent text-accent-foreground rounded-full flex items-center justify-center font-bold text-lg mx-auto">
                       {phase.step}
                     </div>
-                    <h3 className="font-serif text-xl font-bold text-foreground">{phase.title}</h3>
+                    <h3 className="font-serif text-xl font-bold text-foreground">
+                      {phase.title}
+                    </h3>
                     <p className="text-foreground/70 text-sm">{phase.description}</p>
                   </div>
+
                   {idx < 3 && (
                     <div className="hidden md:flex items-center justify-center absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2">
                       <ArrowRight className="text-primary" size={24} />
@@ -203,14 +277,16 @@ export default function ConsultingPage() {
         <section className="py-20 bg-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <p className="text-accent font-semibold text-sm tracking-wide uppercase mb-3">Success Stories</p>
+              <p className="text-accent font-semibold text-sm tracking-wide uppercase mb-3">
+                Success Stories
+              </p>
               <h2 className="font-serif text-4xl font-bold text-foreground mb-4">
                 Real Results from Real Clients
               </h2>
             </div>
 
             <div className="space-y-8">
-              {caseStudies.map((study, idx) => (
+              {caseStudies.map((study) => (
                 <div
                   key={study.id}
                   className="bg-card rounded-xl shadow-md border border-border/50 overflow-hidden hover:shadow-lg transition-all"
@@ -218,17 +294,23 @@ export default function ConsultingPage() {
                   <div className="grid md:grid-cols-2 gap-8 p-8">
                     <div className="space-y-4">
                       <div>
-                        <h3 className="font-serif text-2xl font-bold text-foreground mb-2">{study.company}</h3>
+                        <h3 className="font-serif text-2xl font-bold text-foreground mb-2">
+                          {study.company}
+                        </h3>
                         <p className="text-sm text-accent font-semibold">{study.industry}</p>
                       </div>
 
                       <div className="space-y-3 pt-4 border-t border-border/50">
                         <div>
-                          <p className="text-xs font-semibold text-foreground/60 uppercase mb-2">The Challenge</p>
+                          <p className="text-xs font-semibold text-foreground/60 uppercase mb-2">
+                            The Challenge
+                          </p>
                           <p className="text-foreground/80">{study.challenge}</p>
                         </div>
                         <div>
-                          <p className="text-xs font-semibold text-accent uppercase mb-2">The Result</p>
+                          <p className="text-xs font-semibold text-accent uppercase mb-2">
+                            The Result
+                          </p>
                           <p className="text-lg font-bold text-primary">{study.result}</p>
                         </div>
                       </div>
@@ -275,9 +357,12 @@ export default function ConsultingPage() {
         <section className="py-20 bg-accent">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
             <div className="space-y-4">
-              <h2 className="font-serif text-4xl sm:text-5xl font-bold text-accent-foreground">Ready to Transform?</h2>
+              <h2 className="font-serif text-4xl sm:text-5xl font-bold text-accent-foreground">
+                Ready to Transform?
+              </h2>
               <p className="text-lg text-accent-foreground/80">
-                Let&apos;s discuss how strategic consulting can accelerate your business growth and leadership excellence.
+                Let&apos;s discuss how strategic consulting can accelerate your business growth and
+                leadership excellence.
               </p>
             </div>
 
