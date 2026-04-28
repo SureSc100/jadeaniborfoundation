@@ -28,69 +28,65 @@ export default function FoundationPage() {
     <>
       <Navbar />
       <main>
-        {/* HERO (pic1 flyer) */}
-        <section className="relative pt-28 sm:pt-32 pb-16 min-h-[85vh] flex items-center bg-black">
-          {/* Background image */}
-          <div className="absolute inset-0">
+        {/* HERO IMAGE (flyer - show full, no crop) */}
+        <section className="bg-background">
+          <div className="relative w-full">
             <Image
-              src="/foundation/pic1.jpeg"
+              src="/foundation/pic1.png"
               alt="Jade Anibor Foundation flyer"
-              fill
+              width={1344}
+              height={768}
               priority
-              className="object-cover object-center"
+              className="w-full h-auto"
               sizes="100vw"
             />
+
+            {/* bottom blend into white section below */}
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-36 sm:h-44 bg-gradient-to-b from-transparent to-background" />
           </div>
+        </section>
 
-          {/* Dark overlay for readability */}
-          <div className="absolute inset-0 bg-black/50" />
+        {/* HERO TEXT (below flyer on white background) */}
+        <section className="pb-16 bg-background">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="space-y-4 text-center max-w-4xl mx-auto">
+              <p className="text-accent font-semibold text-sm tracking-wide uppercase">
+                Community Impact
+              </p>
 
-          {/* Bottom blend so the image doesn't end sharply */}
-          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-background" />
+              <h1 className="font-serif text-5xl sm:text-6xl font-bold text-foreground">
+                Jade Anibor Foundation
+              </h1>
 
-          <div className="relative z-10 w-full">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="space-y-4 text-center mb-10 text-white">
-                <p className="text-orange-300 font-semibold text-sm tracking-wide uppercase">
-                  Community Impact
-                </p>
+              <p className="text-xl text-foreground/70">
+                Helping out with period poverty, one book at a time—supporting indigent women and young
+                girls across Africa with access to sanitary pads and proper menstrual hygiene.
+              </p>
 
-                <h1 className="font-serif text-5xl sm:text-6xl font-bold">
-                  Jade Anibor Foundation
-                </h1>
+              <p className="text-sm text-foreground/60">
+                Registered Nonprofit (CAC Reg. No: <span className="font-semibold">169471</span>) • Since Nov
+                16, 2022
+              </p>
 
-                <p className="text-xl text-white/80 max-w-3xl mx-auto">
-                  Helping out with period poverty, one book at a time—supporting indigent women and
-                  young girls across Africa with access to sanitary pads and proper menstrual hygiene.
-                </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
+                <Link
+                  href={flutterwaveDonateUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors"
+                >
+                  Donate Now
+                  <Heart size={20} />
+                </Link>
 
-                <p className="text-sm text-white/70">
-                  Registered Nonprofit (CAC Reg. No: <span className="font-semibold">169471</span>) •
-                  Since Nov 16, 2022
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
-                  <Link
-                    href={flutterwaveDonateUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors"
-                  >
-                    Donate Now
-                    <Heart size={20} />
-                  </Link>
-
-                  <a
-                    href="#what-we-do"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-3 border border-white/30 text-white rounded-lg font-semibold hover:bg-white/10 transition-colors"
-                  >
-                    What We Do
-                    <ArrowRight size={18} />
-                  </a>
-                </div>
+                <a
+                  href="#what-we-do"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-3 border border-border text-foreground rounded-lg font-semibold hover:bg-muted/40 transition-colors"
+                >
+                  What We Do
+                  <ArrowRight size={18} />
+                </a>
               </div>
-
-              {/* REMOVED: Scholarships / Mentees / Impact stats containers */}
             </div>
           </div>
         </section>
