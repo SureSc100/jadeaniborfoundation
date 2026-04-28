@@ -35,6 +35,13 @@ export default function ImpactCarousel() {
         description:
           'Beyond materials, we offer encouragement and mentorship—reminding every girl and woman that she matters.',
       },
+      {
+        image: '/foundation/pic2.jpeg',
+        tag: 'Community Support',
+        title: 'Supporting Women Through Direct Assistance',
+        description:
+          'We support indigent women with timely, practical help—meeting real needs and strengthening livelihoods through community-based outreach.',
+      },
     ],
     []
   )

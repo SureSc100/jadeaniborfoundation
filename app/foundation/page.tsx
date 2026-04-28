@@ -33,7 +33,7 @@ export default function FoundationPage() {
           {/* Background image */}
           <div className="absolute inset-0">
             <Image
-              src="/foundation/pic1.jpg"
+              src="/foundation/pic1.jpeg"
               alt="Jade Anibor Foundation flyer"
               fill
               priority
