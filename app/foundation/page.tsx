@@ -1,6 +1,7 @@
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import Link from 'next/link'
+import Image from 'next/image'
 import {
   Heart,
   ArrowRight,
@@ -27,10 +28,28 @@ export default function FoundationPage() {
     <>
       <Navbar />
       <main>
-        {/* Hero Section */}
-        <section className="pt-32 pb-16 bg-linear-to-b from-primary/10 to-background">
+        {/* HERO IMAGE (flyer - show full, no crop) */}
+        <section className="bg-background">
+          <div className="relative w-full">
+            <Image
+              src="/foundation/pic1.png"
+              alt="Jade Anibor Foundation flyer"
+              width={1344}
+              height={768}
+              priority
+              className="w-full h-auto"
+              sizes="100vw"
+            />
+
+            {/* bottom blend into white section below */}
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-36 sm:h-44 bg-gradient-to-b from-transparent to-background" />
+          </div>
+        </section>
+
+        {/* HERO TEXT (below flyer on white background) */}
+        <section className="pb-16 bg-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="space-y-4 text-center mb-12">
+            <div className="space-y-4 text-center max-w-4xl mx-auto">
               <p className="text-accent font-semibold text-sm tracking-wide uppercase">
                 Community Impact
               </p>
@@ -39,14 +58,14 @@ export default function FoundationPage() {
                 Jade Anibor Foundation
               </h1>
 
-              <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
-                Helping out with period poverty, one book at a time—supporting indigent women and
-                young girls across Africa with access to sanitary pads and proper menstrual hygiene.
+              <p className="text-xl text-foreground/70">
+                Helping out with period poverty, one book at a time—supporting indigent women and young
+                girls across Africa with access to sanitary pads and proper menstrual hygiene.
               </p>
 
               <p className="text-sm text-foreground/60">
-                Registered Nonprofit (CAC Reg. No: <span className="font-semibold">169471</span>) •
-                Since Nov 16, 2022
+                Registered Nonprofit (CAC Reg. No: <span className="font-semibold">169471</span>) • Since Nov
+                16, 2022
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
@@ -69,8 +88,6 @@ export default function FoundationPage() {
                 </a>
               </div>
             </div>
-
-            {/* REMOVED: Scholarships / Mentees / Impact stats containers */}
           </div>
         </section>
 
@@ -111,7 +128,7 @@ export default function FoundationPage() {
           </div>
         </section>
 
-        {/* Keep Carousel (as requested) */}
+        {/* Carousel */}
         <ImpactCarousel />
 
         {/* What We Do */}
@@ -209,8 +226,6 @@ export default function FoundationPage() {
           </div>
         </section>
 
-        {/* REMOVED: Beneficiaries section entirely */}
-
         {/* Donation Section */}
         <section className="py-20 bg-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -231,7 +246,6 @@ export default function FoundationPage() {
                   of lives we can reach.
                 </p>
 
-                {/* Updated “impact examples” (no education/mentorship) */}
                 <div className="space-y-3">
                   <div className="flex gap-4">
                     <div className="text-2xl">🩷</div>
@@ -282,7 +296,6 @@ export default function FoundationPage() {
               </div>
 
               <div className="space-y-6">
-                {/* QR + quick donate */}
                 <div className="bg-muted/30 rounded-xl p-6 border border-border/50">
                   <div className="flex flex-col md:flex-row gap-6 items-center md:items-start">
                     <div className="text-center md:text-left space-y-2">
@@ -303,7 +316,6 @@ export default function FoundationPage() {
                     </div>
 
                     <div className="shrink-0">
-                      {/* If you have an official QR image, replace this <img> with next/image and a /public file */}
                       <img
                         src={qrUrl}
                         alt="Flutterwave donation QR code"
