@@ -20,9 +20,14 @@ directly. See `.env.example` for the full list.
 1. Go to <https://web3forms.com> and enter the inbox that should receive the messages.
 2. Confirm the email and copy the access key from the message Web3Forms sends you.
 3. Set `WEB3FORMS_ACCESS_KEY` (Vercel: Project → Settings → Environment Variables).
+   `WEB3FORMS_KEY` and `NEXT_PUBLIC_WEB3FORMS_KEY` are accepted as aliases.
+4. **Redeploy.** Vercel does not redeploy when you add or change an environment
+   variable, so the new key only reaches the running app after a redeploy
+   (Vercel dashboard → Deployments → ⋯ → Redeploy, or push any commit).
 
 The recipient inbox is bound to the access key, so every message lands in that one
 inbox; the department chosen in the form is carried in the email subject line.
+The key is read server-side only and must never be committed to the repo.
 
 **Option B — Resend (branded sender, routes each subject to its own inbox)**
 
