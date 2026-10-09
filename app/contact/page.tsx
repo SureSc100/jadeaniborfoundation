@@ -10,14 +10,17 @@ const FALLBACK_INBOX = 'Jadeaniborfoundation@gmail.com'
 /**
  * FormSubmit AJAX endpoint (https://formsubmit.co/ajax-documentation). The form
  * posts here straight from the browser — FormSubmit emails the fields to the
- * owner's test inbox, so there is no backend route and no API key.
+ * owner's test inbox (jasonofem79@gmail.com) and CCs the foundation inbox.
+ * There is no backend route and no API key.
  *
- * The foundation inbox (Jadeaniborfoundation@gmail.com) is intentionally NOT a
- * recipient yet: it holds queued test submissions at FormSubmit, so it must not
- * be used as the endpoint again. When it is added later, use a fresh endpoint
- * identity (e.g. a plus-address) — never the plain foundation address.
+ * The endpoint remains jasonofem79@gmail.com because the foundation inbox holds
+ * queued test submissions at FormSubmit that must not be released by activating
+ * the foundation address as an endpoint. CC addresses do not require activation.
  */
 const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/jasonofem79@gmail.com'
+
+/** Foundation inbox, CC'd on every submission. */
+const FOUNDATION_CC_EMAIL = 'Jadeaniborfoundation@gmail.com'
 
 /** Human labels for the "Subject" dropdown values — sent in the email. */
 const SUBJECT_LABELS: Record<string, string> = {
@@ -66,8 +69,8 @@ export default function ContactPage() {
       // not the raw option value ("consulting").
       const subjectLabel = SUBJECT_LABELS[formData.subject] ?? formData.subject
 
-      // Posted straight to FormSubmit's AJAX endpoint (single recipient: the
-      // owner's test inbox).
+      // Posted straight to FormSubmit's AJAX endpoint (owner's test inbox,
+      // CC'ing the foundation inbox).
       const response = await fetch(FORMSUBMIT_ENDPOINT, {
         method: 'POST',
         headers: {
@@ -83,6 +86,7 @@ export default function ContactPage() {
           _subject: `[Website] ${subjectLabel} — ${formData.name}`,
           _template: 'table',
           _replyto: formData.email,
+          _cc: FOUNDATION_CC_EMAIL,
           // A reCAPTCHA cannot be shown from a JS fetch, so it is disabled here;
           // the honeypot below keeps the spam filtering (`_honey` is
           // FormSubmit's documented honeypot — filled-in submissions are
