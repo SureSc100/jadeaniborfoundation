@@ -2,19 +2,25 @@
 
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
-import { Mail, Phone, Clock, ArrowRight } from 'lucide-react'
+import { Mail, Phone, Clock, ArrowRight, Loader2, AlertCircle } from 'lucide-react'
 import { useState } from 'react'
 
-export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: '',
-  })
+const FALLBACK_INBOX = 'Jadeaniborfoundation@gmail.com'
 
-  const [submitted, setSubmitted] = useState(false)
+const EMPTY_FORM = {
+  name: '',
+  email: '',
+  phone: '',
+  subject: '',
+  message: '',
+}
+
+export default function ContactPage() {
+  const [formData, setFormData] = useState(EMPTY_FORM)
+
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
+  const [honeypot, setHoneypot] = useState('')
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -26,15 +32,52 @@ export default function ContactPage() {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    setSubmitted(true)
-    setTimeout(() => {
-      setSubmitted(false)
-      setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
-    }, 3000)
+    if (status === 'sending') return
+
+    setStatus('sending')
+    setErrorMessage('')
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, website: honeypot }),
+      })
+
+      const result = (await response.json().catch(() => null)) as {
+        ok?: boolean
+        error?: string
+        mailto?: string
+      } | null
+
+      if (!response.ok || !result?.ok) {
+        throw new Error(
+          result?.error ?? 'Something went wrong. Please try again or email us directly.'
+        )
+      }
+
+      setStatus('success')
+      setFormData(EMPTY_FORM)
+      setHoneypot('')
+      window.setTimeout(() => setStatus('idle'), 8000)
+    } catch (error) {
+      setStatus('error')
+      setErrorMessage(
+        error instanceof Error && error.message
+          ? error.message
+          : 'Something went wrong. Please try again or email us directly.'
+      )
+    }
   }
+
+  // Keeps the typed message from being lost if sending fails.
+  const mailtoFallback = `mailto:${FALLBACK_INBOX}?subject=${encodeURIComponent(
+    `[Website] ${formData.name || 'Enquiry'}`
+  )}&body=${encodeURIComponent(
+    `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\n${formData.message}`
+  )}`
 
   return (
     <>
@@ -168,7 +211,7 @@ export default function ContactPage() {
                     Send Us a Message
                   </h2>
 
-                  {submitted ? (
+                  {status === 'success' ? (
                     <div className="bg-primary/10 border border-primary/30 rounded-lg p-8 text-center space-y-3">
                       <p className="text-lg font-semibold text-primary">Thank You!</p>
                       <p className="text-foreground/70">
@@ -177,6 +220,40 @@ export default function ContactPage() {
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit} className="space-y-5">
+                      {status === 'error' && (
+                        <div className="flex items-start gap-3 bg-destructive/10 border border-destructive/30 rounded-lg p-4">
+                          <AlertCircle className="text-destructive shrink-0 mt-0.5" size={20} />
+                          <div className="text-sm space-y-2">
+                            <p className="font-semibold text-foreground">
+                              We couldn&apos;t send your message
+                            </p>
+                            <p className="text-foreground/70">{errorMessage}</p>
+                            <p className="text-foreground/70">
+                              You can also reach us at{' '}
+                              <a
+                                href={mailtoFallback}
+                                className="text-primary hover:text-primary/80 underline break-all"
+                              >
+                                {FALLBACK_INBOX}
+                              </a>{' '}
+                              — your message is still in the form, so nothing is lost.
+                            </p>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Honeypot — hidden from visitors, catches bots */}
+                      <input
+                        type="text"
+                        name="website"
+                        value={honeypot}
+                        onChange={(e) => setHoneypot(e.target.value)}
+                        tabIndex={-1}
+                        autoComplete="off"
+                        aria-hidden="true"
+                        className="hidden"
+                      />
+
                       <div className="grid sm:grid-cols-2 gap-5">
                         <div>
                           <label className="block text-sm font-semibold text-foreground mb-2">
@@ -261,10 +338,20 @@ export default function ContactPage() {
 
                       <button
                         type="submit"
-                        className="w-full px-8 py-3 bg-accent text-accent-foreground rounded-lg font-semibold hover:bg-accent/90 transition-colors flex items-center justify-center gap-2"
+                        disabled={status === 'sending'}
+                        className="w-full px-8 py-3 bg-accent text-accent-foreground rounded-lg font-semibold hover:bg-accent/90 transition-colors flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
                       >
-                        Send Message
-                        <ArrowRight size={20} />
+                        {status === 'sending' ? (
+                          <>
+                            <Loader2 size={20} className="animate-spin" />
+                            Sending...
+                          </>
+                        ) : (
+                          <>
+                            Send Message
+                            <ArrowRight size={20} />
+                          </>
+                        )}
                       </button>
                     </form>
                   )}

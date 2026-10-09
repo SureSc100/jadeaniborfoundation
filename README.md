@@ -8,6 +8,46 @@ This repository is linked to a [v0](https://v0.app) project. You can continue de
 
 [Continue working on v0 →](https://v0.app/chat/projects/prj_HTQM68ziJL96Sfp4adBeXDYppQEo)
 
+## Contact form email setup (required, one time)
+
+The "Send Us a Message" form on `/contact` posts to `/api/contact`, which delivers the
+message by email. It needs **one** of the two providers below configured as an
+environment variable, otherwise the form returns a 503 and tells the visitor to email
+directly. See `.env.example` for the full list.
+
+**Option A — Web3Forms (simplest, ~2 minutes, no domain needed)**
+
+1. Go to <https://web3forms.com> and enter the inbox that should receive the messages.
+2. Confirm the email and copy the access key from the message Web3Forms sends you.
+3. Set `WEB3FORMS_ACCESS_KEY` (Vercel: Project → Settings → Environment Variables).
+
+The recipient inbox is bound to the access key, so every message lands in that one
+inbox; the department chosen in the form is carried in the email subject line.
+
+**Option B — Resend (branded sender, routes each subject to its own inbox)**
+
+1. Sign up at <https://resend.com>.
+2. Verify your domain at <https://resend.com/domains>. This is required: until a domain
+   is verified, Resend only delivers to the email address on your own Resend account.
+3. Create a "Sending access" API key and set `RESEND_API_KEY`.
+4. Set `RESEND_FROM_EMAIL` to an address on that verified domain.
+
+With Resend, messages are routed by the subject the visitor picks:
+
+| Subject              | Inbox                                    |
+| -------------------- | ---------------------------------------- |
+| Consulting Inquiry   | jfatrainingtools@gmail.com               |
+| Books                | Jadeanibor@icloud.com                    |
+| Speaking Engagement  | Jadeanibor@icloud.com + foundation inbox |
+| Foundation Support   | Jadeaniborfoundation@gmail.com           |
+| Partnership Opportunity | Jadeaniborfoundation@gmail.com        |
+| Other                | Jadeaniborfoundation@gmail.com           |
+
+Set `CONTACT_EMAIL_OVERRIDE` to send everything to a single inbox instead.
+
+> SMTP (nodemailer) is deliberately not used: Vercel blocks outbound SMTP, so mail must
+> be sent over HTTPS through an email API.
+
 ## Getting Started
 
 First, run the development server:
