@@ -7,6 +7,30 @@ import { useState } from 'react'
 
 const FALLBACK_INBOX = 'Jadeaniborfoundation@gmail.com'
 
+/**
+ * FormSubmit AJAX endpoint (https://formsubmit.co/ajax-documentation). The form
+ * posts here straight from the browser — FormSubmit emails the fields to the
+ * foundation inbox, so there is no backend route and no API key.
+ */
+const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/Jadeaniborfoundation@gmail.com'
+
+/**
+ * TEMPORARY test recipient: every message is CC'd here so deliveries can be
+ * watched during rollout. TODO: remove `TEST_CC_EMAIL` (and its `_cc` field in
+ * handleSubmit) in the follow-up PR that adds Jade's personal inbox.
+ */
+const TEST_CC_EMAIL = 'jasonofem79@gmail.com'
+
+/** Human labels for the "Subject" dropdown values — sent in the email. */
+const SUBJECT_LABELS: Record<string, string> = {
+  consulting: 'Consulting Inquiry',
+  speaking: 'Speaking Engagement',
+  books: 'Books',
+  foundation: 'Foundation Support',
+  partnership: 'Partnership Opportunity',
+  other: 'Other',
+}
+
 const EMPTY_FORM = {
   name: '',
   email: '',
@@ -40,21 +64,51 @@ export default function ContactPage() {
     setErrorMessage('')
 
     try {
-      const response = await fetch('/api/contact', {
+      // The email carries the dropdown's human label ("Consulting Inquiry"),
+      // not the raw option value ("consulting").
+      const subjectLabel = SUBJECT_LABELS[formData.subject] ?? formData.subject
+
+      // Posted straight to FormSubmit's AJAX endpoint. `_cc` is a documented
+      // FormSubmit field (https://formsubmit.co/documentation) and travels in
+      // the same JSON body as the regular fields, so one request delivers one
+      // message to the foundation inbox with the test recipient CC'd.
+      const response = await fetch(FORMSUBMIT_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, website: honeypot }),
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: subjectLabel,
+          message: formData.message,
+          _subject: `[Website] ${subjectLabel} — ${formData.name}`,
+          _template: 'table',
+          _replyto: formData.email,
+          _cc: TEST_CC_EMAIL,
+          // A reCAPTCHA cannot be shown from a JS fetch, so it is disabled here;
+          // the honeypot below keeps the spam filtering (`_honey` is
+          // FormSubmit's documented honeypot — filled-in submissions are
+          // silently dropped).
+          _captcha: 'false',
+          _honey: honeypot,
+        }),
       })
 
       const result = (await response.json().catch(() => null)) as {
-        ok?: boolean
-        error?: string
-        mailto?: string
+        success?: boolean | string
+        message?: string
       } | null
 
-      if (!response.ok || !result?.ok) {
+      // FormSubmit reports `success` as a boolean or the string "true".
+      const delivered = response.ok && (result?.success === true || result?.success === 'true')
+
+      if (!delivered) {
         throw new Error(
-          result?.error ?? 'Something went wrong. Please try again or email us directly.'
+          (typeof result?.message === 'string' && result.message) ||
+            'Something went wrong. Please try again or email us directly.'
         )
       }
 
