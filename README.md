@@ -8,50 +8,47 @@ This repository is linked to a [v0](https://v0.app) project. You can continue de
 
 [Continue working on v0 →](https://v0.app/chat/projects/prj_HTQM68ziJL96Sfp4adBeXDYppQEo)
 
-## Contact form email setup (required, one time)
+## Contact form email setup (FormSubmit — no configuration needed)
 
-The "Send Us a Message" form on `/contact` posts to `/api/contact`, which delivers the
-message by email. It needs **one** of the two providers below configured as an
-environment variable, otherwise the form returns a 503 and tells the visitor to email
-directly. See `.env.example` for the full list.
+The "Send Us a Message" form on `/contact` posts straight from the browser to
+[FormSubmit's AJAX endpoint](https://formsubmit.co/ajax-documentation)
+(`https://formsubmit.co/ajax/Jadeaniborfoundation@gmail.com`), which delivers the
+message by email. There is no backend route and no API key — nothing to configure
+on Vercel.
 
-**Option A — Web3Forms (simplest, ~2 minutes, no domain needed)**
+- **To:** Jadeaniborfoundation@gmail.com (foundation inbox)
+- **CC:** jasonofem79@gmail.com — **temporary** test recipient so deliveries can be
+  watched during rollout; remove it once Jade's personal inbox is active (below).
+- **Subject:** `[Website] <subject> — <name>`. Replying goes to the visitor
+  (FormSubmit's `_replyto`).
 
-1. Go to <https://web3forms.com> and enter the inbox that should receive the messages.
-2. Confirm the email and copy the access key from the message Web3Forms sends you.
-3. Set `WEB3FORMS_ACCESS_KEY` (Vercel: Project → Settings → Environment Variables).
-   `WEB3FORMS_KEY` and `NEXT_PUBLIC_WEB3FORMS_KEY` are accepted as aliases.
-4. **Redeploy.** Vercel does not redeploy when you add or change an environment
-   variable, so the new key only reaches the running app after a redeploy
-   (Vercel dashboard → Deployments → ⋯ → Redeploy, or push any commit).
+### One-time activation per inbox
 
-The recipient inbox is bound to the access key, so every message lands in that one
-inbox; the department chosen in the form is carried in the email subject line.
-The key is read server-side only and must never be committed to the repo.
+FormSubmit delivers **nothing** to an inbox until that inbox has been activated.
+The first submission after a deploy triggers a FormSubmit confirmation email to
+each recipient instead of the message:
 
-**Option B — Resend (branded sender, routes each subject to its own inbox)**
+1. Submit the form once on the live site.
+2. In `Jadeaniborfoundation@gmail.com`, click the FormSubmit confirmation link.
+3. In `jasonofem79@gmail.com`, click its FormSubmit confirmation link.
 
-1. Sign up at <https://resend.com>.
-2. Verify your domain at <https://resend.com/domains>. This is required: until a domain
-   is verified, Resend only delivers to the email address on your own Resend account.
-3. Create a "Sending access" API key and set `RESEND_API_KEY`.
-4. Set `RESEND_FROM_EMAIL` to an address on that verified domain.
+After that, every submission lands in both inboxes. Repeat the click for any
+inbox added later.
 
-With Resend, messages are routed by the subject the visitor picks:
+### Later: add Jade's inbox, drop the test recipient (new PR)
 
-| Subject              | Inbox                                    |
-| -------------------- | ---------------------------------------- |
-| Consulting Inquiry   | jfatrainingtools@gmail.com               |
-| Books                | Jadeanibor@icloud.com                    |
-| Speaking Engagement  | Jadeanibor@icloud.com + foundation inbox |
-| Foundation Support   | Jadeaniborfoundation@gmail.com           |
-| Partnership Opportunity | Jadeaniborfoundation@gmail.com        |
-| Other                | Jadeaniborfoundation@gmail.com           |
+When Jade's personal email is ready: add it as another recipient in
+`app/contact/page.tsx`, have Jade click her activation link, then delete
+`TEST_CC_EMAIL` (and its `_cc` field) to stop the test copies.
 
-Set `CONTACT_EMAIL_OVERRIDE` to send everything to a single inbox instead.
+Caveats (from the FormSubmit docs): reCAPTCHA is disabled for this form
+(`_captcha: false`) because it cannot be shown from a JS fetch — the hidden
+honeypot field (`_honey`) filters bots instead. FormSubmit's free plan has a
+monthly submission limit and submissions are retained for 30 days — check
+<https://formsubmit.co/documentation> before any large campaign.
 
-> SMTP (nodemailer) is deliberately not used: Vercel blocks outbound SMTP, so mail must
-> be sent over HTTPS through an email API.
+Any leftover form-email environment variables in the Vercel project belong to
+removed email setups and are unused — delete them (see `.env.example`).
 
 ## Getting Started
 
