@@ -376,11 +376,15 @@ export async function POST(request: Request) {
     }
   } catch (error) {
     console.error('[contact] Failed to send message:', error)
+    // The provider's rejection reason (never the access key) so the site owner
+    // can read it in the browser's Network tab, e.g. "Invalid access key".
+    const detail = error instanceof Error ? error.message : String(error)
     return NextResponse.json(
       {
         ok: false,
         error:
           'Sorry, your message could not be sent just now. Please email us directly and we will get back to you.',
+        detail,
         mailto: target.to[0],
       },
       { status: 502 }
