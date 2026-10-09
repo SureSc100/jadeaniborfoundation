@@ -206,36 +206,69 @@ async function sendViaResend(args: {
 
 /**
  * Reads the Web3Forms access key from the environment. `WEB3FORMS_ACCESS_KEY`
- * is the documented name (see .env.example); the other spellings are accepted
- * so the form keeps working if the variable was added under a different name
- * (e.g. following Web3Forms' own docs). The key is only ever read server-side
- * here — it must never be committed to the repo.
+ * is the documented name (see .env.example); a handful of other common
+ * spellings are accepted, and as a last resort ANY variable whose name
+ * mentions "web3forms" and whose value looks like an access key (a UUID) is
+ * used — so the form keeps working even if the variable was added under an
+ * unexpected name. The key is only ever read server-side here — it must never
+ * be committed to the repo. Returns the key plus the name of the variable it
+ * came from (the name is safe to log; the value is not).
  */
-function web3formsAccessKey(): string | undefined {
-  return (
-    process.env.WEB3FORMS_ACCESS_KEY?.trim() ||
-    process.env.WEB3FORMS_KEY?.trim() ||
-    process.env.NEXT_PUBLIC_WEB3FORMS_KEY?.trim() ||
-    undefined
+const WEB3FORMS_KEY_NAMES = [
+  'WEB3FORMS_ACCESS_KEY',
+  'NEXT_PUBLIC_WEB3FORMS_KEY',
+  'NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY',
+  'WEB3FORMS_KEY',
+  'WEB3FORMS_API_KEY',
+  'WEB3FORMS_TOKEN',
+  'WEB3_FORMS_ACCESS_KEY',
+] as const
+
+/** Web3Forms access keys are UUIDs — used to recognise keys in oddly-named vars. */
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+
+function web3formsAccessKey(): { key: string | undefined; source: string | undefined } {
+  for (const name of WEB3FORMS_KEY_NAMES) {
+    const value = process.env[name]?.trim()
+    if (value) return { key: value, source: name }
+  }
+  // Fallback for unexpected spellings: any env var that mentions web3forms
+  // (except the endpoint override) and holds a UUID-shaped access key.
+  for (const [name, value] of Object.entries(process.env)) {
+    const trimmed = value?.trim()
+    if (!trimmed) continue
+    if (!/web3forms/i.test(name)) continue
+    if (/url|endpoint/i.test(name)) continue
+    if (!UUID_RE.test(trimmed)) continue
+    return { key: trimmed, source: name }
+  }
+  return { key: undefined, source: undefined }
+}
+
+/** Names of env vars that look like Web3Forms configuration (names only, never values). */
+function web3formsEnvVarNames(): string[] {
+  return Object.keys(process.env).filter(
+    (name) => /web3forms/i.test(name) && !/url|endpoint/i.test(name)
   )
 }
 
 async function sendViaWeb3Forms(args: {
+  accessKey: string
+  keySource: string
   replyTo: string
   name: string
   subject: string
   message: string
 }): Promise<void> {
-  const accessKey = web3formsAccessKey()
-  if (!accessKey) throw new Error('WEB3FORMS_ACCESS_KEY is not set')
-
   const endpoint = process.env.WEB3FORMS_API_URL?.trim() || 'https://api.web3forms.com/submit'
+
+  console.log(`[contact] Sending via Web3Forms (key read from ${args.keySource})`)
 
   const response = await fetch(endpoint, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      access_key: accessKey,
+      access_key: args.accessKey,
       // The recipient inbox is bound to the access key when the key is created,
       // so the department is carried in the subject line instead.
       from_name: 'Website Contact Form',
@@ -295,12 +328,14 @@ export async function POST(request: Request) {
   const subject = `[Website] ${target.label} — ${data.name}`
 
   const hasResend = Boolean(process.env.RESEND_API_KEY?.trim())
-  const hasWeb3Forms = Boolean(web3formsAccessKey())
+  const web3forms = web3formsAccessKey()
+  const hasWeb3Forms = Boolean(web3forms.key)
 
   if (!hasResend && !hasWeb3Forms) {
     console.error(
       '[contact] No email provider configured. Set RESEND_API_KEY or a Web3Forms key ' +
-        '(WEB3FORMS_ACCESS_KEY, WEB3FORMS_KEY or NEXT_PUBLIC_WEB3FORMS_KEY).'
+        '(WEB3FORMS_ACCESS_KEY, WEB3FORMS_KEY or NEXT_PUBLIC_WEB3FORMS_KEY). ' +
+        `Web3Forms-looking env vars visible to this function: ${web3formsEnvVarNames().join(', ') || '(none)'}`
     )
     return NextResponse.json(
       {
@@ -308,6 +343,13 @@ export async function POST(request: Request) {
         error:
           'The contact form is not connected to email yet. Please email us directly and we will get back to you.',
         mailto: target.to[0],
+        // Names only, never values — lets the site owner spot a naming or
+        // environment-scope mismatch via the browser's Network tab.
+        debug: {
+          resendConfigured: hasResend,
+          web3formsConfigured: hasWeb3Forms,
+          web3formsEnvVarsFound: web3formsEnvVarNames(),
+        },
       },
       { status: 503 }
     )
@@ -322,8 +364,10 @@ export async function POST(request: Request) {
         html,
         text,
       })
-    } else {
+    } else if (web3forms.key && web3forms.source) {
       await sendViaWeb3Forms({
+        accessKey: web3forms.key,
+        keySource: web3forms.source,
         replyTo: data.email,
         name: data.name,
         subject,
