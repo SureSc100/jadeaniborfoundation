@@ -12,13 +12,14 @@ This repository is linked to a [v0](https://v0.app) project. You can continue de
 
 The "Send Us a Message" form on `/contact` posts straight from the browser to
 [FormSubmit's AJAX endpoint](https://formsubmit.co/ajax-documentation)
-(`https://formsubmit.co/ajax/Jadeaniborfoundation@gmail.com`), which delivers the
+(`https://formsubmit.co/ajax/jasonofem79@gmail.com`), which delivers the
 message by email. There is no backend route and no API key — nothing to configure
 on Vercel.
 
-- **To:** Jadeaniborfoundation@gmail.com (foundation inbox)
-- **CC:** jasonofem79@gmail.com — **temporary** test recipient so deliveries can be
-  watched during rollout; remove it once Jade's personal inbox is active (below).
+- **To:** jasonofem79@gmail.com (the owner's test inbox)
+- **Foundation inbox:** intentionally **not** a recipient yet. It holds queued
+  test submissions at FormSubmit, so it must not be used as the endpoint (or a
+  `_cc`) until it is added deliberately in its own change (below).
 - **Subject:** `[Website] <subject> — <name>`. Replying goes to the visitor
   (FormSubmit's `_replyto`).
 
@@ -26,20 +27,22 @@ on Vercel.
 
 FormSubmit delivers **nothing** to an inbox until that inbox has been activated.
 The first submission after a deploy triggers a FormSubmit confirmation email to
-each recipient instead of the message:
+the recipient instead of the message:
 
 1. Submit the form once on the live site.
-2. In `Jadeaniborfoundation@gmail.com`, click the FormSubmit confirmation link.
-3. In `jasonofem79@gmail.com`, click its FormSubmit confirmation link.
+2. In `jasonofem79@gmail.com`, click the FormSubmit confirmation link (check spam).
 
-After that, every submission lands in both inboxes. Repeat the click for any
+After that, every submission lands in that inbox. Repeat the click for any
 inbox added later.
 
-### Later: add Jade's inbox, drop the test recipient (new PR)
+### Later: add the foundation inbox (new PR)
 
-When Jade's personal email is ready: add it as another recipient in
-`app/contact/page.tsx`, have Jade click her activation link, then delete
-`TEST_CC_EMAIL` (and its `_cc` field) to stop the test copies.
+Do not reuse `Jadeaniborfoundation@gmail.com` as the endpoint or `_cc` — its
+queued test submissions would be delivered as soon as its FormSubmit "Activate
+Form" link is clicked. Use a fresh endpoint identity instead (e.g.
+`Jadeaniborfoundation+website@gmail.com`, after checking plus-address delivery
+with a test), add it in `app/contact/page.tsx`, and have its owner click the
+activation link.
 
 Caveats (from the FormSubmit docs): reCAPTCHA is disabled for this form
 (`_captcha: false`) because it cannot be shown from a JS fetch — the hidden

@@ -10,16 +10,14 @@ const FALLBACK_INBOX = 'Jadeaniborfoundation@gmail.com'
 /**
  * FormSubmit AJAX endpoint (https://formsubmit.co/ajax-documentation). The form
  * posts here straight from the browser — FormSubmit emails the fields to the
- * foundation inbox, so there is no backend route and no API key.
+ * owner's test inbox, so there is no backend route and no API key.
+ *
+ * The foundation inbox (Jadeaniborfoundation@gmail.com) is intentionally NOT a
+ * recipient yet: it holds queued test submissions at FormSubmit, so it must not
+ * be used as the endpoint again. When it is added later, use a fresh endpoint
+ * identity (e.g. a plus-address) — never the plain foundation address.
  */
-const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/Jadeaniborfoundation@gmail.com'
-
-/**
- * TEMPORARY test recipient: every message is CC'd here so deliveries can be
- * watched during rollout. TODO: remove `TEST_CC_EMAIL` (and its `_cc` field in
- * handleSubmit) in the follow-up PR that adds Jade's personal inbox.
- */
-const TEST_CC_EMAIL = 'jasonofem79@gmail.com'
+const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/jasonofem79@gmail.com'
 
 /** Human labels for the "Subject" dropdown values — sent in the email. */
 const SUBJECT_LABELS: Record<string, string> = {
@@ -68,10 +66,8 @@ export default function ContactPage() {
       // not the raw option value ("consulting").
       const subjectLabel = SUBJECT_LABELS[formData.subject] ?? formData.subject
 
-      // Posted straight to FormSubmit's AJAX endpoint. `_cc` is a documented
-      // FormSubmit field (https://formsubmit.co/documentation) and travels in
-      // the same JSON body as the regular fields, so one request delivers one
-      // message to the foundation inbox with the test recipient CC'd.
+      // Posted straight to FormSubmit's AJAX endpoint (single recipient: the
+      // owner's test inbox).
       const response = await fetch(FORMSUBMIT_ENDPOINT, {
         method: 'POST',
         headers: {
@@ -87,7 +83,6 @@ export default function ContactPage() {
           _subject: `[Website] ${subjectLabel} — ${formData.name}`,
           _template: 'table',
           _replyto: formData.email,
-          _cc: TEST_CC_EMAIL,
           // A reCAPTCHA cannot be shown from a JS fetch, so it is disabled here;
           // the honeypot below keeps the spam filtering (`_honey` is
           // FormSubmit's documented honeypot — filled-in submissions are
