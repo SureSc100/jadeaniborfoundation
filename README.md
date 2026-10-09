@@ -17,32 +17,20 @@ message by email. There is no backend route and no API key — nothing to config
 on Vercel.
 
 - **To:** jasonofem79@gmail.com (the owner's test inbox)
-- **Foundation inbox:** intentionally **not** a recipient yet. It holds queued
-  test submissions at FormSubmit, so it must not be used as the endpoint (or a
-  `_cc`) until it is added deliberately in its own change (below).
+- **CC:** Jadeaniborfoundation@gmail.com (the foundation inbox; CC recipients receive messages without needing endpoint activation)
 - **Subject:** `[Website] <subject> — <name>`. Replying goes to the visitor
   (FormSubmit's `_replyto`).
 
-### One-time activation per inbox
+### FormSubmit activation & held test submissions
 
-FormSubmit delivers **nothing** to an inbox until that inbox has been activated.
-The first submission after a deploy triggers a FormSubmit confirmation email to
-the recipient instead of the message:
+The endpoint `jasonofem79@gmail.com` is activated and confirmed working. CC addresses
+do not need FormSubmit activation.
 
-1. Submit the form once on the live site.
-2. In `jasonofem79@gmail.com`, click the FormSubmit confirmation link (check spam).
-
-After that, every submission lands in that inbox. Repeat the click for any
-inbox added later.
-
-### Later: add the foundation inbox (new PR)
-
-Do not reuse `Jadeaniborfoundation@gmail.com` as the endpoint or `_cc` — its
-queued test submissions would be delivered as soon as its FormSubmit "Activate
-Form" link is clicked. Use a fresh endpoint identity instead (e.g.
-`Jadeaniborfoundation+website@gmail.com`, after checking plus-address delivery
-with a test), add it in `app/contact/page.tsx`, and have its owner click the
-activation link.
+**Important safety rule regarding held test submissions:**
+Test submissions sent earlier to `Jadeaniborfoundation@gmail.com` remain held at FormSubmit.
+Do **not** change the endpoint URL to `Jadeaniborfoundation@gmail.com`, and **never** click
+any FormSubmit "Activate Form" links in `Jadeaniborfoundation@gmail.com`, as doing so would
+activate the foundation endpoint and release the held test messages.
 
 Caveats (from the FormSubmit docs): reCAPTCHA is disabled for this form
 (`_captcha: false`) because it cannot be shown from a JS fetch — the hidden
