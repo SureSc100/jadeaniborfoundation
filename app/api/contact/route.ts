@@ -204,13 +204,29 @@ async function sendViaResend(args: {
   }
 }
 
+/**
+ * Reads the Web3Forms access key from the environment. `WEB3FORMS_ACCESS_KEY`
+ * is the documented name (see .env.example); the other spellings are accepted
+ * so the form keeps working if the variable was added under a different name
+ * (e.g. following Web3Forms' own docs). The key is only ever read server-side
+ * here — it must never be committed to the repo.
+ */
+function web3formsAccessKey(): string | undefined {
+  return (
+    process.env.WEB3FORMS_ACCESS_KEY?.trim() ||
+    process.env.WEB3FORMS_KEY?.trim() ||
+    process.env.NEXT_PUBLIC_WEB3FORMS_KEY?.trim() ||
+    undefined
+  )
+}
+
 async function sendViaWeb3Forms(args: {
   replyTo: string
   name: string
   subject: string
   message: string
 }): Promise<void> {
-  const accessKey = process.env.WEB3FORMS_ACCESS_KEY?.trim()
+  const accessKey = web3formsAccessKey()
   if (!accessKey) throw new Error('WEB3FORMS_ACCESS_KEY is not set')
 
   const endpoint = process.env.WEB3FORMS_API_URL?.trim() || 'https://api.web3forms.com/submit'
@@ -224,6 +240,7 @@ async function sendViaWeb3Forms(args: {
       // so the department is carried in the subject line instead.
       from_name: 'Website Contact Form',
       subject: args.subject,
+      email: args.replyTo,
       replyto: args.replyTo,
       name: args.name,
       message: args.message,
@@ -278,11 +295,12 @@ export async function POST(request: Request) {
   const subject = `[Website] ${target.label} — ${data.name}`
 
   const hasResend = Boolean(process.env.RESEND_API_KEY?.trim())
-  const hasWeb3Forms = Boolean(process.env.WEB3FORMS_ACCESS_KEY?.trim())
+  const hasWeb3Forms = Boolean(web3formsAccessKey())
 
   if (!hasResend && !hasWeb3Forms) {
     console.error(
-      '[contact] No email provider configured. Set RESEND_API_KEY or WEB3FORMS_ACCESS_KEY.'
+      '[contact] No email provider configured. Set RESEND_API_KEY or a Web3Forms key ' +
+        '(WEB3FORMS_ACCESS_KEY, WEB3FORMS_KEY or NEXT_PUBLIC_WEB3FORMS_KEY).'
     )
     return NextResponse.json(
       {
